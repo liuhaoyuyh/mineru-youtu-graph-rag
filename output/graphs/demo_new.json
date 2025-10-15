@@ -1,0 +1,4926 @@
+[
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "type: football club",
+        "chunk id": "0FCIUkTr"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "status: active",
+        "chunk id": "0FCIUkTr"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "participates_in",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Copa del Rey",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "event"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "participates_in",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Copa del Rey",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "event"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "defeated",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Real Madrid",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "won",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "La Liga",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "event"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "located_in",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "La Liga",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "event"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "participates_in",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "European Cup",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "event"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "status: favourites",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "status: started strongly",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "status: finished without trophies",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "participates_in",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "2006-07 season",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "time_period"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "participates_in",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "2006 FIFA Club World Cup",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "participates_in",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Champions League",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "FC-Barcelona-Legends",
+        "description": "A community of legendary FC Barcelona players and associated clubs, including icons like Messi, Ronaldinho, and Maradona.",
+        "members": [
+          "FC Barcelona",
+          "Diego Maradona",
+          "Bernd Schuster",
+          "Eto'o",
+          "Lionel Messi",
+          "Ronaldinho",
+          "Liverpool",
+          "Cesc Fàbregas",
+          "Gerard Piqué",
+          "Baby Dream Team",
+          "Arsenal"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "FC Barcelona"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "FC Barcelona"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Diego Maradona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "position: footballer",
+        "chunk id": "0FCIUkTr"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Diego Maradona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "transfer_fee: 5 million",
+        "chunk id": "0FCIUkTr"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Diego Maradona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "status: transferred",
+        "chunk id": "0FCIUkTr"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Diego Maradona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "belongs_to",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Diego Maradona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "transferred_from",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Boca Juniors",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Diego Maradona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "transferred_to",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Napoli",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Diego Maradona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "FC-Barcelona-Legends",
+        "description": "A community of legendary FC Barcelona players and associated clubs, including icons like Messi, Ronaldinho, and Maradona.",
+        "members": [
+          "FC Barcelona",
+          "Diego Maradona",
+          "Bernd Schuster",
+          "Eto'o",
+          "Lionel Messi",
+          "Ronaldinho",
+          "Liverpool",
+          "Cesc Fàbregas",
+          "Gerard Piqué",
+          "Baby Dream Team",
+          "Arsenal"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Diego Maradona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Diego Maradona"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Diego Maradona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Diego Maradona"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Boca Juniors",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "type: football club",
+        "chunk id": "0FCIUkTr"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Boca Juniors",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Spanish-Football-Competitions",
+        "description": "A network of major Spanish and international football competitions, clubs, and governing bodies like La Liga and Copa del Rey.",
+        "members": [
+          "Boca Juniors",
+          "Copa del Rey",
+          "Real Madrid",
+          "Napoli",
+          "La Liga",
+          "European Cup",
+          "Steaua Bucureşti",
+          "Getafe",
+          "Internacional",
+          "Royal Spanish Football Federation",
+          "Cadetes A",
+          "Espanyol",
+          "Copa Catalunya final"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Luis",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "position: coach",
+        "chunk id": "0FCIUkTr"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Luis",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Barcelona-Managers",
+        "description": "A group centered on Luis and featuring notable FC Barcelona managers like Frank Rijkaard and Terry Venables.",
+        "members": [
+          "Luis",
+          "Terry Venables",
+          "manager",
+          "Frank Rijkaard"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Luis",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Luis"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Luis",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Luis"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Copa del Rey",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "event"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "type: football tournament",
+        "chunk id": "0FCIUkTr"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Copa del Rey",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "event"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "description: Spanish football cup competition",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Copa del Rey",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "event"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Spanish-Football-Competitions",
+        "description": "A network of major Spanish and international football competitions, clubs, and governing bodies like La Liga and Copa del Rey.",
+        "members": [
+          "Boca Juniors",
+          "Copa del Rey",
+          "Real Madrid",
+          "Napoli",
+          "La Liga",
+          "European Cup",
+          "Steaua Bucureşti",
+          "Getafe",
+          "Internacional",
+          "Royal Spanish Football Federation",
+          "Cadetes A",
+          "Espanyol",
+          "Copa Catalunya final"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Copa del Rey",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "event"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Copa del Rey"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Copa del Rey",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "event"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Copa del Rey"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Real Madrid",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "type: football club",
+        "chunk id": "0FCIUkTr"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Real Madrid",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "status: champions",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Real Madrid",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "precedes",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Real Madrid",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Spanish-Football-Competitions",
+        "description": "A network of major Spanish and international football competitions, clubs, and governing bodies like La Liga and Copa del Rey.",
+        "members": [
+          "Boca Juniors",
+          "Copa del Rey",
+          "Real Madrid",
+          "Napoli",
+          "La Liga",
+          "European Cup",
+          "Steaua Bucureşti",
+          "Getafe",
+          "Internacional",
+          "Royal Spanish Football Federation",
+          "Cadetes A",
+          "Espanyol",
+          "Copa Catalunya final"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Real Madrid",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Real Madrid"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Real Madrid",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Real Madrid"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Napoli",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "type: football club",
+        "chunk id": "0FCIUkTr"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Napoli",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Spanish-Football-Competitions",
+        "description": "A network of major Spanish and international football competitions, clubs, and governing bodies like La Liga and Copa del Rey.",
+        "members": [
+          "Boca Juniors",
+          "Copa del Rey",
+          "Real Madrid",
+          "Napoli",
+          "La Liga",
+          "European Cup",
+          "Steaua Bucureşti",
+          "Getafe",
+          "Internacional",
+          "Royal Spanish Football Federation",
+          "Cadetes A",
+          "Espanyol",
+          "Copa Catalunya final"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Terry Venables",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "position: manager",
+        "chunk id": "0FCIUkTr"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Terry Venables",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "is_a",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "manager",
+        "chunk id": "0FCIUkTr"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Terry Venables",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "belongs_to",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Terry Venables",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Barcelona-Managers",
+        "description": "A group centered on Luis and featuring notable FC Barcelona managers like Frank Rijkaard and Terry Venables.",
+        "members": [
+          "Luis",
+          "Terry Venables",
+          "manager",
+          "Frank Rijkaard"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Terry Venables",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Terry Venables"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Terry Venables",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Terry Venables"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "1984–85 season",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "time_period"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "time: football season",
+        "chunk id": "0FCIUkTr"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "1984–85 season",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "time_period"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Historic-Football-Seasons",
+        "description": "A group of significant football seasons and landmark achievements, including Maradona's goal and the Champions League.",
+        "members": [
+          "1984–85 season",
+          "2006-07 season",
+          "Diego Maradona's goal of the century",
+          "2006 FIFA Club World Cup",
+          "Champions League"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "1984–85 season",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "time_period"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "1984–85 season"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "1984–85 season",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "time_period"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "1984–85 season"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "La Liga",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "event"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "type: football league",
+        "chunk id": "0FCIUkTr"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "La Liga",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "event"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "description: Spanish football league",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "La Liga",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "event"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Spanish-Football-Competitions",
+        "description": "A network of major Spanish and international football competitions, clubs, and governing bodies like La Liga and Copa del Rey.",
+        "members": [
+          "Boca Juniors",
+          "Copa del Rey",
+          "Real Madrid",
+          "Napoli",
+          "La Liga",
+          "European Cup",
+          "Steaua Bucureşti",
+          "Getafe",
+          "Internacional",
+          "Royal Spanish Football Federation",
+          "Cadetes A",
+          "Espanyol",
+          "Copa Catalunya final"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "La Liga",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "event"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "La Liga"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "La Liga",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "event"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "La Liga"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Bernd Schuster",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "position: German midfielder",
+        "chunk id": "0FCIUkTr"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Bernd Schuster",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "belongs_to",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Bernd Schuster",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "FC-Barcelona-Legends",
+        "description": "A community of legendary FC Barcelona players and associated clubs, including icons like Messi, Ronaldinho, and Maradona.",
+        "members": [
+          "FC Barcelona",
+          "Diego Maradona",
+          "Bernd Schuster",
+          "Eto'o",
+          "Lionel Messi",
+          "Ronaldinho",
+          "Liverpool",
+          "Cesc Fàbregas",
+          "Gerard Piqué",
+          "Baby Dream Team",
+          "Arsenal"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Bernd Schuster",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Bernd Schuster"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Bernd Schuster",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "person"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Bernd Schuster"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "European Cup",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "event"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "type: football tournament",
+        "chunk id": "0FCIUkTr"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "European Cup",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "event"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Spanish-Football-Competitions",
+        "description": "A network of major Spanish and international football competitions, clubs, and governing bodies like La Liga and Copa del Rey.",
+        "members": [
+          "Boca Juniors",
+          "Copa del Rey",
+          "Real Madrid",
+          "Napoli",
+          "La Liga",
+          "European Cup",
+          "Steaua Bucureşti",
+          "Getafe",
+          "Internacional",
+          "Royal Spanish Football Federation",
+          "Cadetes A",
+          "Espanyol",
+          "Copa Catalunya final"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Steaua Bucureşti",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "type: football club",
+        "chunk id": "0FCIUkTr"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Steaua Bucureşti",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "defeated",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Steaua Bucureşti",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Spanish-Football-Competitions",
+        "description": "A network of major Spanish and international football competitions, clubs, and governing bodies like La Liga and Copa del Rey.",
+        "members": [
+          "Boca Juniors",
+          "Copa del Rey",
+          "Real Madrid",
+          "Napoli",
+          "La Liga",
+          "European Cup",
+          "Steaua Bucureşti",
+          "Getafe",
+          "Internacional",
+          "Royal Spanish Football Federation",
+          "Cadetes A",
+          "Espanyol",
+          "Copa Catalunya final"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Seville",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "location"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "type: city",
+        "chunk id": "0FCIUkTr"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Seville",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "location"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Andalusian-Football",
+        "description": "A small community connecting the city of Seville with the famed FC Barcelona youth academy, La Masia.",
+        "members": [
+          "Seville",
+          "La Masia"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Seville",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "location"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Seville"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Seville",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "location"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Seville"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "manager",
+        "chunk id": "0FCIUkTr"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Barcelona-Managers",
+        "description": "A group centered on Luis and featuring notable FC Barcelona managers like Frank Rijkaard and Terry Venables.",
+        "members": [
+          "Luis",
+          "Terry Venables",
+          "manager",
+          "Frank Rijkaard"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "manager",
+        "chunk id": "0FCIUkTr"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "manager"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "manager",
+        "chunk id": "0FCIUkTr"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "manager"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "European Cup final",
+        "chunk id": "0FCIUkTr"
+      }
+    },
+    "relation": "located_in",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Seville",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "location"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "European Cup final",
+        "chunk id": "0FCIUkTr"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "European-Spanish-Competitions",
+        "description": "Community centered around major European and Spanish football competitions, including Barcelona's domestic and international cup campaigns.",
+        "members": [
+          "European Cup final",
+          "Spanish cup",
+          "Catalan cup",
+          "Barcelona",
+          "Spain"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "European Cup final",
+        "chunk id": "0FCIUkTr"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "European Cup final"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "European Cup final",
+        "chunk id": "0FCIUkTr"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "European Cup final"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "2006-07 season",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "time_period"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "description: football season",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "2006-07 season",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "time_period"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Historic-Football-Seasons",
+        "description": "A group of significant football seasons and landmark achievements, including Maradona's goal and the Champions League.",
+        "members": [
+          "1984–85 season",
+          "2006-07 season",
+          "Diego Maradona's goal of the century",
+          "2006 FIFA Club World Cup",
+          "Champions League"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "2006-07 season",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "time_period"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "2006-07 season"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "2006-07 season",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "time_period"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "2006-07 season"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "pre-season US tour",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "description: blamed for injuries",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "pre-season US tour",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    },
+    "relation": "influences",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "string of injuries",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "pre-season US tour",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "US-Tour-Injuries",
+        "description": "Community focused on the pre-season US tour, impacted by a string of injuries and equipment protection.",
+        "members": [
+          "pre-season US tour",
+          "string of injuries",
+          "plastic protector"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "pre-season US tour",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "pre-season US tour"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "pre-season US tour",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "pre-season US tour"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Eto'o",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "position: leading scorer",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Eto'o",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "status: injured",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Eto'o",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "belongs_to",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Eto'o",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "related_to",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Frank Rijkaard",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Eto'o",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "FC-Barcelona-Legends",
+        "description": "A community of legendary FC Barcelona players and associated clubs, including icons like Messi, Ronaldinho, and Maradona.",
+        "members": [
+          "FC Barcelona",
+          "Diego Maradona",
+          "Bernd Schuster",
+          "Eto'o",
+          "Lionel Messi",
+          "Ronaldinho",
+          "Liverpool",
+          "Cesc Fàbregas",
+          "Gerard Piqué",
+          "Baby Dream Team",
+          "Arsenal"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Lionel Messi",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "position: rising star",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Lionel Messi",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "status: injured",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Lionel Messi",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "belongs_to",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Lionel Messi",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "comparable_to",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Diego Maradona's goal of the century",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Lionel Messi",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "position: football player",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Lionel Messi",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "status: completed growth hormone treatment aged 14",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Lionel Messi",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "enrolled in",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Royal Spanish Football Federation",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Lionel Messi",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "studied at",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "La Masia",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Lionel Messi",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "befriended",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Cesc Fàbregas",
+        "chunk id": "CbHylu8o",
+        "schema_type": "person"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Lionel Messi",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "befriended",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Gerard Piqué",
+        "chunk id": "CbHylu8o",
+        "schema_type": "person"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Lionel Messi",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "part_of",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Baby Dream Team",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Lionel Messi",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "part_of",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Cadetes A",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Lionel Messi",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "participates_in",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Copa Catalunya final",
+        "chunk id": "CbHylu8o",
+        "schema_type": "event"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Lionel Messi",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "used_by",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "plastic protector",
+        "chunk id": "CbHylu8o",
+        "schema_type": "object"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Lionel Messi",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "chose to remain in",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Barcelona",
+        "chunk id": "CbHylu8o",
+        "schema_type": "location"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Lionel Messi",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "FC-Barcelona-Legends",
+        "description": "A community of legendary FC Barcelona players and associated clubs, including icons like Messi, Ronaldinho, and Maradona.",
+        "members": [
+          "FC Barcelona",
+          "Diego Maradona",
+          "Bernd Schuster",
+          "Eto'o",
+          "Lionel Messi",
+          "Ronaldinho",
+          "Liverpool",
+          "Cesc Fàbregas",
+          "Gerard Piqué",
+          "Baby Dream Team",
+          "Arsenal"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Lionel Messi",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Lionel Messi"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Lionel Messi",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Lionel Messi"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Frank Rijkaard",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "position: coach",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Frank Rijkaard",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Barcelona-Managers",
+        "description": "A group centered on Luis and featuring notable FC Barcelona managers like Frank Rijkaard and Terry Venables.",
+        "members": [
+          "Luis",
+          "Terry Venables",
+          "manager",
+          "Frank Rijkaard"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Frank Rijkaard",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Frank Rijkaard"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Frank Rijkaard",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Frank Rijkaard"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Ronaldinho",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "status: lack of fitness affected form",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Ronaldinho",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "belongs_to",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Ronaldinho",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "FC-Barcelona-Legends",
+        "description": "A community of legendary FC Barcelona players and associated clubs, including icons like Messi, Ronaldinho, and Maradona.",
+        "members": [
+          "FC Barcelona",
+          "Diego Maradona",
+          "Bernd Schuster",
+          "Eto'o",
+          "Lionel Messi",
+          "Ronaldinho",
+          "Liverpool",
+          "Cesc Fàbregas",
+          "Gerard Piqué",
+          "Baby Dream Team",
+          "Arsenal"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Getafe",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "description: football team",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Getafe",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Spanish-Football-Competitions",
+        "description": "A network of major Spanish and international football competitions, clubs, and governing bodies like La Liga and Copa del Rey.",
+        "members": [
+          "Boca Juniors",
+          "Copa del Rey",
+          "Real Madrid",
+          "Napoli",
+          "La Liga",
+          "European Cup",
+          "Steaua Bucureşti",
+          "Getafe",
+          "Internacional",
+          "Royal Spanish Football Federation",
+          "Cadetes A",
+          "Espanyol",
+          "Copa Catalunya final"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Diego Maradona's goal of the century",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "description: famous football goal",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Diego Maradona's goal of the century",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Historic-Football-Seasons",
+        "description": "A group of significant football seasons and landmark achievements, including Maradona's goal and the Champions League.",
+        "members": [
+          "1984–85 season",
+          "2006-07 season",
+          "Diego Maradona's goal of the century",
+          "2006 FIFA Club World Cup",
+          "Champions League"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Diego Maradona's goal of the century",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Diego Maradona's goal of the century"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Diego Maradona's goal of the century",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Diego Maradona's goal of the century"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "2006 FIFA Club World Cup",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "description: international football competition",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "2006 FIFA Club World Cup",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Historic-Football-Seasons",
+        "description": "A group of significant football seasons and landmark achievements, including Maradona's goal and the Champions League.",
+        "members": [
+          "1984–85 season",
+          "2006-07 season",
+          "Diego Maradona's goal of the century",
+          "2006 FIFA Club World Cup",
+          "Champions League"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "2006 FIFA Club World Cup",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "2006 FIFA Club World Cup"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "2006 FIFA Club World Cup",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "2006 FIFA Club World Cup"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Internacional",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "description: Brazilian football side",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Internacional",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "related_to",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Internacional",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Spanish-Football-Competitions",
+        "description": "A network of major Spanish and international football competitions, clubs, and governing bodies like La Liga and Copa del Rey.",
+        "members": [
+          "Boca Juniors",
+          "Copa del Rey",
+          "Real Madrid",
+          "Napoli",
+          "La Liga",
+          "European Cup",
+          "Steaua Bucureşti",
+          "Getafe",
+          "Internacional",
+          "Royal Spanish Football Federation",
+          "Cadetes A",
+          "Espanyol",
+          "Copa Catalunya final"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Champions League",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "description: European football competition",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Champions League",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Historic-Football-Seasons",
+        "description": "A group of significant football seasons and landmark achievements, including Maradona's goal and the Champions League.",
+        "members": [
+          "1984–85 season",
+          "2006-07 season",
+          "Diego Maradona's goal of the century",
+          "2006 FIFA Club World Cup",
+          "Champions League"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Champions League",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Champions League"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Champions League",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "event"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Champions League"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Liverpool",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "status: eventual runners-up",
+        "chunk id": "rpQTmzHn"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Liverpool",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "related_to",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "FC Barcelona",
+        "chunk id": "0FCIUkTr",
+        "schema_type": "organization"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Liverpool",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "FC-Barcelona-Legends",
+        "description": "A community of legendary FC Barcelona players and associated clubs, including icons like Messi, Ronaldinho, and Maradona.",
+        "members": [
+          "FC Barcelona",
+          "Diego Maradona",
+          "Bernd Schuster",
+          "Eto'o",
+          "Lionel Messi",
+          "Ronaldinho",
+          "Liverpool",
+          "Cesc Fàbregas",
+          "Gerard Piqué",
+          "Baby Dream Team",
+          "Arsenal"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "string of injuries",
+        "chunk id": "rpQTmzHn"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "US-Tour-Injuries",
+        "description": "Community focused on the pre-season US tour, impacted by a string of injuries and equipment protection.",
+        "members": [
+          "pre-season US tour",
+          "string of injuries",
+          "plastic protector"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "string of injuries",
+        "chunk id": "rpQTmzHn"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "string of injuries"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "string of injuries",
+        "chunk id": "rpQTmzHn"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "string of injuries"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "La Masia",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "type: youth academy",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "La Masia",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "location: Barcelona",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "La Masia",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Andalusian-Football",
+        "description": "A small community connecting the city of Seville with the famed FC Barcelona youth academy, La Masia.",
+        "members": [
+          "Seville",
+          "La Masia"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "La Masia",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "La Masia"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "La Masia",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "La Masia"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Royal Spanish Football Federation",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "type: football federation",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Royal Spanish Football Federation",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "abbreviation: RFEF",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Royal Spanish Football Federation",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Spanish-Football-Competitions",
+        "description": "A network of major Spanish and international football competitions, clubs, and governing bodies like La Liga and Copa del Rey.",
+        "members": [
+          "Boca Juniors",
+          "Copa del Rey",
+          "Real Madrid",
+          "Napoli",
+          "La Liga",
+          "European Cup",
+          "Steaua Bucureşti",
+          "Getafe",
+          "Internacional",
+          "Royal Spanish Football Federation",
+          "Cadetes A",
+          "Espanyol",
+          "Copa Catalunya final"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Cesc Fàbregas",
+        "chunk id": "CbHylu8o",
+        "schema_type": "person"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "position: football player",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Cesc Fàbregas",
+        "chunk id": "CbHylu8o",
+        "schema_type": "person"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "relation: teammate",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Cesc Fàbregas",
+        "chunk id": "CbHylu8o",
+        "schema_type": "person"
+      }
+    },
+    "relation": "left for",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "England",
+        "chunk id": "CbHylu8o",
+        "schema_type": "location"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Cesc Fàbregas",
+        "chunk id": "CbHylu8o",
+        "schema_type": "person"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "FC-Barcelona-Legends",
+        "description": "A community of legendary FC Barcelona players and associated clubs, including icons like Messi, Ronaldinho, and Maradona.",
+        "members": [
+          "FC Barcelona",
+          "Diego Maradona",
+          "Bernd Schuster",
+          "Eto'o",
+          "Lionel Messi",
+          "Ronaldinho",
+          "Liverpool",
+          "Cesc Fàbregas",
+          "Gerard Piqué",
+          "Baby Dream Team",
+          "Arsenal"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Cesc Fàbregas",
+        "chunk id": "CbHylu8o",
+        "schema_type": "person"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Cesc Fàbregas"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Cesc Fàbregas",
+        "chunk id": "CbHylu8o",
+        "schema_type": "person"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Cesc Fàbregas"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Gerard Piqué",
+        "chunk id": "CbHylu8o",
+        "schema_type": "person"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "position: football player",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Gerard Piqué",
+        "chunk id": "CbHylu8o",
+        "schema_type": "person"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "relation: teammate",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Gerard Piqué",
+        "chunk id": "CbHylu8o",
+        "schema_type": "person"
+      }
+    },
+    "relation": "left for",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "England",
+        "chunk id": "CbHylu8o",
+        "schema_type": "location"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Gerard Piqué",
+        "chunk id": "CbHylu8o",
+        "schema_type": "person"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "FC-Barcelona-Legends",
+        "description": "A community of legendary FC Barcelona players and associated clubs, including icons like Messi, Ronaldinho, and Maradona.",
+        "members": [
+          "FC Barcelona",
+          "Diego Maradona",
+          "Bernd Schuster",
+          "Eto'o",
+          "Lionel Messi",
+          "Ronaldinho",
+          "Liverpool",
+          "Cesc Fàbregas",
+          "Gerard Piqué",
+          "Baby Dream Team",
+          "Arsenal"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Baby Dream Team",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "type: youth football team",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Baby Dream Team",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "description: Barcelona's greatest-ever youth side",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Baby Dream Team",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "FC-Barcelona-Legends",
+        "description": "A community of legendary FC Barcelona players and associated clubs, including icons like Messi, Ronaldinho, and Maradona.",
+        "members": [
+          "FC Barcelona",
+          "Diego Maradona",
+          "Bernd Schuster",
+          "Eto'o",
+          "Lionel Messi",
+          "Ronaldinho",
+          "Liverpool",
+          "Cesc Fàbregas",
+          "Gerard Piqué",
+          "Baby Dream Team",
+          "Arsenal"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Cadetes A",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "type: youth football team",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Cadetes A",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "achievement: unprecedented treble winner",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Cadetes A",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "won",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "league",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Cadetes A",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "won",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Spanish cup",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Cadetes A",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "won",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Catalan cup",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Cadetes A",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Spanish-Football-Competitions",
+        "description": "A network of major Spanish and international football competitions, clubs, and governing bodies like La Liga and Copa del Rey.",
+        "members": [
+          "Boca Juniors",
+          "Copa del Rey",
+          "Real Madrid",
+          "Napoli",
+          "La Liga",
+          "European Cup",
+          "Steaua Bucureşti",
+          "Getafe",
+          "Internacional",
+          "Royal Spanish Football Federation",
+          "Cadetes A",
+          "Espanyol",
+          "Copa Catalunya final"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Cadetes A",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Cadetes A"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Cadetes A",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Cadetes A"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Espanyol",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "type: football club",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Espanyol",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Spanish-Football-Competitions",
+        "description": "A network of major Spanish and international football competitions, clubs, and governing bodies like La Liga and Copa del Rey.",
+        "members": [
+          "Boca Juniors",
+          "Copa del Rey",
+          "Real Madrid",
+          "Napoli",
+          "La Liga",
+          "European Cup",
+          "Steaua Bucureşti",
+          "Getafe",
+          "Internacional",
+          "Royal Spanish Football Federation",
+          "Cadetes A",
+          "Espanyol",
+          "Copa Catalunya final"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Arsenal",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "type: football club",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Arsenal",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "location: England",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Arsenal",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "made offer to",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Lionel Messi",
+        "chunk id": "rpQTmzHn",
+        "schema_type": "person"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Arsenal",
+        "chunk id": "CbHylu8o",
+        "schema_type": "organization"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "FC-Barcelona-Legends",
+        "description": "A community of legendary FC Barcelona players and associated clubs, including icons like Messi, Ronaldinho, and Maradona.",
+        "members": [
+          "FC Barcelona",
+          "Diego Maradona",
+          "Bernd Schuster",
+          "Eto'o",
+          "Lionel Messi",
+          "Ronaldinho",
+          "Liverpool",
+          "Cesc Fàbregas",
+          "Gerard Piqué",
+          "Baby Dream Team",
+          "Arsenal"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Copa Catalunya final",
+        "chunk id": "CbHylu8o",
+        "schema_type": "event"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "type: football match",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Copa Catalunya final",
+        "chunk id": "CbHylu8o",
+        "schema_type": "event"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "description: partido de la máscara (final of the mask)",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Copa Catalunya final",
+        "chunk id": "CbHylu8o",
+        "schema_type": "event"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "score: 4-1 victory",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Copa Catalunya final",
+        "chunk id": "CbHylu8o",
+        "schema_type": "event"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Spanish-Football-Competitions",
+        "description": "A network of major Spanish and international football competitions, clubs, and governing bodies like La Liga and Copa del Rey.",
+        "members": [
+          "Boca Juniors",
+          "Copa del Rey",
+          "Real Madrid",
+          "Napoli",
+          "La Liga",
+          "European Cup",
+          "Steaua Bucureşti",
+          "Getafe",
+          "Internacional",
+          "Royal Spanish Football Federation",
+          "Cadetes A",
+          "Espanyol",
+          "Copa Catalunya final"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Copa Catalunya final",
+        "chunk id": "CbHylu8o",
+        "schema_type": "event"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Copa Catalunya final"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Copa Catalunya final",
+        "chunk id": "CbHylu8o",
+        "schema_type": "event"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Copa Catalunya final"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "plastic protector",
+        "chunk id": "CbHylu8o",
+        "schema_type": "object"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "type: medical equipment",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "plastic protector",
+        "chunk id": "CbHylu8o",
+        "schema_type": "object"
+      }
+    },
+    "relation": "has_attribute",
+    "end_node": {
+      "label": "attribute",
+      "properties": {
+        "name": "purpose: facial protection",
+        "chunk id": "CbHylu8o"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "plastic protector",
+        "chunk id": "CbHylu8o",
+        "schema_type": "object"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "US-Tour-Injuries",
+        "description": "Community focused on the pre-season US tour, impacted by a string of injuries and equipment protection.",
+        "members": [
+          "pre-season US tour",
+          "string of injuries",
+          "plastic protector"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "plastic protector",
+        "chunk id": "CbHylu8o",
+        "schema_type": "object"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "plastic protector"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "plastic protector",
+        "chunk id": "CbHylu8o",
+        "schema_type": "object"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "plastic protector"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "league",
+        "chunk id": "CbHylu8o"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "English-League",
+        "description": "Community discussing league football matters specifically within the context of England.",
+        "members": [
+          "league",
+          "England"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "league",
+        "chunk id": "CbHylu8o"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "league"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "league",
+        "chunk id": "CbHylu8o"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "league"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Spanish cup",
+        "chunk id": "CbHylu8o"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "European-Spanish-Competitions",
+        "description": "Community centered around major European and Spanish football competitions, including Barcelona's domestic and international cup campaigns.",
+        "members": [
+          "European Cup final",
+          "Spanish cup",
+          "Catalan cup",
+          "Barcelona",
+          "Spain"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Spanish cup",
+        "chunk id": "CbHylu8o"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Spanish cup"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Spanish cup",
+        "chunk id": "CbHylu8o"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Spanish cup"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Catalan cup",
+        "chunk id": "CbHylu8o"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "European-Spanish-Competitions",
+        "description": "Community centered around major European and Spanish football competitions, including Barcelona's domestic and international cup campaigns.",
+        "members": [
+          "European Cup final",
+          "Spanish cup",
+          "Catalan cup",
+          "Barcelona",
+          "Spain"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Catalan cup",
+        "chunk id": "CbHylu8o"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Catalan cup"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Catalan cup",
+        "chunk id": "CbHylu8o"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Catalan cup"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Barcelona",
+        "chunk id": "CbHylu8o",
+        "schema_type": "location"
+      }
+    },
+    "relation": "located_in",
+    "end_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Spain",
+        "chunk id": "CbHylu8o",
+        "schema_type": "location"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Barcelona",
+        "chunk id": "CbHylu8o",
+        "schema_type": "location"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "European-Spanish-Competitions",
+        "description": "Community centered around major European and Spanish football competitions, including Barcelona's domestic and international cup campaigns.",
+        "members": [
+          "European Cup final",
+          "Spanish cup",
+          "Catalan cup",
+          "Barcelona",
+          "Spain"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Barcelona",
+        "chunk id": "CbHylu8o",
+        "schema_type": "location"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Barcelona"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Barcelona",
+        "chunk id": "CbHylu8o",
+        "schema_type": "location"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Barcelona"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Spain",
+        "chunk id": "CbHylu8o",
+        "schema_type": "location"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "European-Spanish-Competitions",
+        "description": "Community centered around major European and Spanish football competitions, including Barcelona's domestic and international cup campaigns.",
+        "members": [
+          "European Cup final",
+          "Spanish cup",
+          "Catalan cup",
+          "Barcelona",
+          "Spain"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Spain",
+        "chunk id": "CbHylu8o",
+        "schema_type": "location"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Spain"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "Spain",
+        "chunk id": "CbHylu8o",
+        "schema_type": "location"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Spain"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "England",
+        "chunk id": "CbHylu8o",
+        "schema_type": "location"
+      }
+    },
+    "relation": "member_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "English-League",
+        "description": "Community discussing league football matters specifically within the context of England.",
+        "members": [
+          "league",
+          "England"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "England",
+        "chunk id": "CbHylu8o",
+        "schema_type": "location"
+      }
+    },
+    "relation": "represented_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "England"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "entity",
+      "properties": {
+        "name": "England",
+        "chunk id": "CbHylu8o",
+        "schema_type": "location"
+      }
+    },
+    "relation": "kw_filter_by",
+    "end_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "England"
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "FC Barcelona"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "FC-Barcelona-Legends",
+        "description": "A community of legendary FC Barcelona players and associated clubs, including icons like Messi, Ronaldinho, and Maradona.",
+        "members": [
+          "FC Barcelona",
+          "Diego Maradona",
+          "Bernd Schuster",
+          "Eto'o",
+          "Lionel Messi",
+          "Ronaldinho",
+          "Liverpool",
+          "Cesc Fàbregas",
+          "Gerard Piqué",
+          "Baby Dream Team",
+          "Arsenal"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Lionel Messi"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "FC-Barcelona-Legends",
+        "description": "A community of legendary FC Barcelona players and associated clubs, including icons like Messi, Ronaldinho, and Maradona.",
+        "members": [
+          "FC Barcelona",
+          "Diego Maradona",
+          "Bernd Schuster",
+          "Eto'o",
+          "Lionel Messi",
+          "Ronaldinho",
+          "Liverpool",
+          "Cesc Fàbregas",
+          "Gerard Piqué",
+          "Baby Dream Team",
+          "Arsenal"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Cesc Fàbregas"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "FC-Barcelona-Legends",
+        "description": "A community of legendary FC Barcelona players and associated clubs, including icons like Messi, Ronaldinho, and Maradona.",
+        "members": [
+          "FC Barcelona",
+          "Diego Maradona",
+          "Bernd Schuster",
+          "Eto'o",
+          "Lionel Messi",
+          "Ronaldinho",
+          "Liverpool",
+          "Cesc Fàbregas",
+          "Gerard Piqué",
+          "Baby Dream Team",
+          "Arsenal"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Bernd Schuster"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "FC-Barcelona-Legends",
+        "description": "A community of legendary FC Barcelona players and associated clubs, including icons like Messi, Ronaldinho, and Maradona.",
+        "members": [
+          "FC Barcelona",
+          "Diego Maradona",
+          "Bernd Schuster",
+          "Eto'o",
+          "Lionel Messi",
+          "Ronaldinho",
+          "Liverpool",
+          "Cesc Fàbregas",
+          "Gerard Piqué",
+          "Baby Dream Team",
+          "Arsenal"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Diego Maradona"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "FC-Barcelona-Legends",
+        "description": "A community of legendary FC Barcelona players and associated clubs, including icons like Messi, Ronaldinho, and Maradona.",
+        "members": [
+          "FC Barcelona",
+          "Diego Maradona",
+          "Bernd Schuster",
+          "Eto'o",
+          "Lionel Messi",
+          "Ronaldinho",
+          "Liverpool",
+          "Cesc Fàbregas",
+          "Gerard Piqué",
+          "Baby Dream Team",
+          "Arsenal"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Luis"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Barcelona-Managers",
+        "description": "A group centered on Luis and featuring notable FC Barcelona managers like Frank Rijkaard and Terry Venables.",
+        "members": [
+          "Luis",
+          "Terry Venables",
+          "manager",
+          "Frank Rijkaard"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Terry Venables"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Barcelona-Managers",
+        "description": "A group centered on Luis and featuring notable FC Barcelona managers like Frank Rijkaard and Terry Venables.",
+        "members": [
+          "Luis",
+          "Terry Venables",
+          "manager",
+          "Frank Rijkaard"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "manager"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Barcelona-Managers",
+        "description": "A group centered on Luis and featuring notable FC Barcelona managers like Frank Rijkaard and Terry Venables.",
+        "members": [
+          "Luis",
+          "Terry Venables",
+          "manager",
+          "Frank Rijkaard"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Frank Rijkaard"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Barcelona-Managers",
+        "description": "A group centered on Luis and featuring notable FC Barcelona managers like Frank Rijkaard and Terry Venables.",
+        "members": [
+          "Luis",
+          "Terry Venables",
+          "manager",
+          "Frank Rijkaard"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "La Liga"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Spanish-Football-Competitions",
+        "description": "A network of major Spanish and international football competitions, clubs, and governing bodies like La Liga and Copa del Rey.",
+        "members": [
+          "Boca Juniors",
+          "Copa del Rey",
+          "Real Madrid",
+          "Napoli",
+          "La Liga",
+          "European Cup",
+          "Steaua Bucureşti",
+          "Getafe",
+          "Internacional",
+          "Royal Spanish Football Federation",
+          "Cadetes A",
+          "Espanyol",
+          "Copa Catalunya final"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Copa del Rey"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Spanish-Football-Competitions",
+        "description": "A network of major Spanish and international football competitions, clubs, and governing bodies like La Liga and Copa del Rey.",
+        "members": [
+          "Boca Juniors",
+          "Copa del Rey",
+          "Real Madrid",
+          "Napoli",
+          "La Liga",
+          "European Cup",
+          "Steaua Bucureşti",
+          "Getafe",
+          "Internacional",
+          "Royal Spanish Football Federation",
+          "Cadetes A",
+          "Espanyol",
+          "Copa Catalunya final"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Cadetes A"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Spanish-Football-Competitions",
+        "description": "A network of major Spanish and international football competitions, clubs, and governing bodies like La Liga and Copa del Rey.",
+        "members": [
+          "Boca Juniors",
+          "Copa del Rey",
+          "Real Madrid",
+          "Napoli",
+          "La Liga",
+          "European Cup",
+          "Steaua Bucureşti",
+          "Getafe",
+          "Internacional",
+          "Royal Spanish Football Federation",
+          "Cadetes A",
+          "Espanyol",
+          "Copa Catalunya final"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Real Madrid"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Spanish-Football-Competitions",
+        "description": "A network of major Spanish and international football competitions, clubs, and governing bodies like La Liga and Copa del Rey.",
+        "members": [
+          "Boca Juniors",
+          "Copa del Rey",
+          "Real Madrid",
+          "Napoli",
+          "La Liga",
+          "European Cup",
+          "Steaua Bucureşti",
+          "Getafe",
+          "Internacional",
+          "Royal Spanish Football Federation",
+          "Cadetes A",
+          "Espanyol",
+          "Copa Catalunya final"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Copa Catalunya final"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Spanish-Football-Competitions",
+        "description": "A network of major Spanish and international football competitions, clubs, and governing bodies like La Liga and Copa del Rey.",
+        "members": [
+          "Boca Juniors",
+          "Copa del Rey",
+          "Real Madrid",
+          "Napoli",
+          "La Liga",
+          "European Cup",
+          "Steaua Bucureşti",
+          "Getafe",
+          "Internacional",
+          "Royal Spanish Football Federation",
+          "Cadetes A",
+          "Espanyol",
+          "Copa Catalunya final"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Seville"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Andalusian-Football",
+        "description": "A small community connecting the city of Seville with the famed FC Barcelona youth academy, La Masia.",
+        "members": [
+          "Seville",
+          "La Masia"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "La Masia"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Andalusian-Football",
+        "description": "A small community connecting the city of Seville with the famed FC Barcelona youth academy, La Masia.",
+        "members": [
+          "Seville",
+          "La Masia"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "1984–85 season"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Historic-Football-Seasons",
+        "description": "A group of significant football seasons and landmark achievements, including Maradona's goal and the Champions League.",
+        "members": [
+          "1984–85 season",
+          "2006-07 season",
+          "Diego Maradona's goal of the century",
+          "2006 FIFA Club World Cup",
+          "Champions League"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "2006-07 season"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Historic-Football-Seasons",
+        "description": "A group of significant football seasons and landmark achievements, including Maradona's goal and the Champions League.",
+        "members": [
+          "1984–85 season",
+          "2006-07 season",
+          "Diego Maradona's goal of the century",
+          "2006 FIFA Club World Cup",
+          "Champions League"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Diego Maradona's goal of the century"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Historic-Football-Seasons",
+        "description": "A group of significant football seasons and landmark achievements, including Maradona's goal and the Champions League.",
+        "members": [
+          "1984–85 season",
+          "2006-07 season",
+          "Diego Maradona's goal of the century",
+          "2006 FIFA Club World Cup",
+          "Champions League"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "2006 FIFA Club World Cup"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Historic-Football-Seasons",
+        "description": "A group of significant football seasons and landmark achievements, including Maradona's goal and the Champions League.",
+        "members": [
+          "1984–85 season",
+          "2006-07 season",
+          "Diego Maradona's goal of the century",
+          "2006 FIFA Club World Cup",
+          "Champions League"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Champions League"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "Historic-Football-Seasons",
+        "description": "A group of significant football seasons and landmark achievements, including Maradona's goal and the Champions League.",
+        "members": [
+          "1984–85 season",
+          "2006-07 season",
+          "Diego Maradona's goal of the century",
+          "2006 FIFA Club World Cup",
+          "Champions League"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "pre-season US tour"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "US-Tour-Injuries",
+        "description": "Community focused on the pre-season US tour, impacted by a string of injuries and equipment protection.",
+        "members": [
+          "pre-season US tour",
+          "string of injuries",
+          "plastic protector"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "string of injuries"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "US-Tour-Injuries",
+        "description": "Community focused on the pre-season US tour, impacted by a string of injuries and equipment protection.",
+        "members": [
+          "pre-season US tour",
+          "string of injuries",
+          "plastic protector"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "plastic protector"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "US-Tour-Injuries",
+        "description": "Community focused on the pre-season US tour, impacted by a string of injuries and equipment protection.",
+        "members": [
+          "pre-season US tour",
+          "string of injuries",
+          "plastic protector"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "European Cup final"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "European-Spanish-Competitions",
+        "description": "Community centered around major European and Spanish football competitions, including Barcelona's domestic and international cup campaigns.",
+        "members": [
+          "European Cup final",
+          "Spanish cup",
+          "Catalan cup",
+          "Barcelona",
+          "Spain"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Spanish cup"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "European-Spanish-Competitions",
+        "description": "Community centered around major European and Spanish football competitions, including Barcelona's domestic and international cup campaigns.",
+        "members": [
+          "European Cup final",
+          "Spanish cup",
+          "Catalan cup",
+          "Barcelona",
+          "Spain"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Catalan cup"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "European-Spanish-Competitions",
+        "description": "Community centered around major European and Spanish football competitions, including Barcelona's domestic and international cup campaigns.",
+        "members": [
+          "European Cup final",
+          "Spanish cup",
+          "Catalan cup",
+          "Barcelona",
+          "Spain"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Barcelona"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "European-Spanish-Competitions",
+        "description": "Community centered around major European and Spanish football competitions, including Barcelona's domestic and international cup campaigns.",
+        "members": [
+          "European Cup final",
+          "Spanish cup",
+          "Catalan cup",
+          "Barcelona",
+          "Spain"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "Spain"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "European-Spanish-Competitions",
+        "description": "Community centered around major European and Spanish football competitions, including Barcelona's domestic and international cup campaigns.",
+        "members": [
+          "European Cup final",
+          "Spanish cup",
+          "Catalan cup",
+          "Barcelona",
+          "Spain"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "league"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "English-League",
+        "description": "Community discussing league football matters specifically within the context of England.",
+        "members": [
+          "league",
+          "England"
+        ]
+      }
+    }
+  },
+  {
+    "start_node": {
+      "label": "keyword",
+      "properties": {
+        "name": "England"
+      }
+    },
+    "relation": "keyword_of",
+    "end_node": {
+      "label": "community",
+      "properties": {
+        "name": "English-League",
+        "description": "Community discussing league football matters specifically within the context of England.",
+        "members": [
+          "league",
+          "England"
+        ]
+      }
+    }
+  }
+]
