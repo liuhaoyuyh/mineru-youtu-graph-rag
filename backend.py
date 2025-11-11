@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+    #!/usr/bin/env python3
 """
 Simple but Complete Youtu-GraphRAG Backend
 Integrates real GraphRAG functionality with a simple interface
