@@ -165,6 +165,15 @@ class ConfigManager:
         try:
             with open(self.config_path, 'r', encoding='utf-8') as f:
                 self.config_data = yaml.safe_load(f)
+            try:
+                extra_path = os.getenv("MINERU_CONFIG") or str(Path(self.config_path).parent / "mineru.yaml")
+                if extra_path and os.path.isfile(extra_path):
+                    with open(extra_path, 'r', encoding='utf-8') as ef:
+                        mineru_cfg = yaml.safe_load(ef) or {}
+                    # Mount under a dedicated key to avoid colliding with core config
+                    self.config_data["mineru"] = mineru_cfg
+            except Exception:
+                pass
             
             self._parse_config()
             self._validate_config()
@@ -282,7 +291,6 @@ class ConfigManager:
     def to_dict(self) -> Dict[str, Any]:
         """Convert configuration to dictionary format."""
         return {
-            "api": asdict(self.api),
             "datasets": {name: asdict(config) for name, config in self.datasets.items()},
             "triggers": asdict(self.triggers),
             "construction": asdict(self.construction),
@@ -293,6 +301,7 @@ class ConfigManager:
             "output": asdict(self.output),
             "performance": asdict(self.performance),
             "evaluation": asdict(self.evaluation),
+            "mineru": self.config_data.get("mineru", {}),
         }
     
     def create_output_directories(self) -> None:

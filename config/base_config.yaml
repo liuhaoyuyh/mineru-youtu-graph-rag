@@ -318,3 +318,8 @@ triggers:
   constructor_trigger: true
   mode: agent
   retrieve_trigger: true
+multimodal:
+  enabled: true
+  mineru_out_base: data/uploaded
+  context_window: 1
+  vlm_enabled: true

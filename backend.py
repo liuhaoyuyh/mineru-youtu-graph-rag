@@ -1,4 +1,4 @@
-    #!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 Simple but Complete Youtu-GraphRAG Backend
 Integrates real GraphRAG functionality with a simple interface
@@ -25,7 +25,8 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 import uvicorn
 
-from utils.logger import logger
+from utils.logger import logger, setup_logger
+import logging
 from utils.mineru_adapter import is_mineru_available, parse_with_mineru
 import ast
 
@@ -280,24 +281,25 @@ async def upload_files(files: List[UploadFile] = File(...), client_id: str = "de
             elif file.filename.lower().endswith((
                 '.pdf', '.png', '.jpg', '.jpeg', '.bmp', '.tif', '.tiff', '.webp'
             )):
-                # Use MinerU to parse PDFs/images into text corpus
-                if not is_mineru_available():
-                    # Graceful degrade: accept the file but record empty text
-                    logger.warning("MinerU CLI not found. Uploading file but storing empty content.")
-                    corpus_data.append({"title": file.filename, "text": ""})
-                    progress = 10 + (i + 1) * 80 // len(files)
-                    await send_progress_update(client_id, "upload", progress, f"Processed {file.filename} (MinerU unavailable)")
-                    continue
+                # Try MinerU to parse PDFs/images into text corpus (attempt regardless of availability check)
                 try:
                     mineru_out_dir = os.path.join(upload_dir, "mineru_out")
+                    logs_dir = "output/logs"
+                    os.makedirs(logs_dir, exist_ok=True)
+                    try:
+                        fh_paths = [getattr(h, 'baseFilename', None) for h in logger.handlers]
+                        if not any(p and p.endswith("mineru.log") for p in fh_paths):
+                            setup_logger(name="youtu-graphrag", level=logging.INFO, log_file=os.path.join(logs_dir, "mineru.log"))
+                    except Exception:
+                        pass
+                    logger.info(f"upload parse start: file='{file_path}' out='{mineru_out_dir}'")
                     parsed_entries = parse_with_mineru(file_path, mineru_out_dir)
+                    logger.info(f"upload parse result entries={len(parsed_entries) if parsed_entries else 0}")
                     if parsed_entries:
                         corpus_data.extend(parsed_entries)
                     else:
-                        # Fallback: store empty content to keep structure
                         corpus_data.append({"title": file.filename, "text": ""})
                 except Exception as e:
-                    # Graceful degrade on MinerU errors: do not fail entire upload
                     logger.error(f"MinerU parsing failed for {file.filename}: {e}")
                     corpus_data.append({"title": file.filename, "text": ""})
                     progress = 10 + (i + 1) * 80 // len(files)
@@ -307,11 +309,11 @@ async def upload_files(files: List[UploadFile] = File(...), client_id: str = "de
             progress = 10 + (i + 1) * 80 // len(files)
             await send_progress_update(client_id, "upload", progress, f"Processed {file.filename}")
         
-        # Save corpus data
+        # Save corpus data（仅保存上传与 MinerU 的结果，不做多模态块合并）
         corpus_path = f"{upload_dir}/corpus.json"
         with open(corpus_path, 'w', encoding='utf-8') as f:
             json.dump(corpus_data, f, ensure_ascii=False, indent=2)
-        
+
         # Create dataset configuration
         await create_dataset_config()
         
@@ -341,6 +343,14 @@ async def construct_graph(request: GraphConstructionRequest, client_id: str = "d
             raise HTTPException(status_code=503, detail="GraphRAG components not available. Please install or configure them.")
         dataset_name = request.dataset_name
         
+        logs_dir = "output/logs"
+        os.makedirs(logs_dir, exist_ok=True)
+        try:
+            fh_paths = [getattr(h, 'baseFilename', None) for h in logger.handlers]
+            if not any(p and p.endswith("construction.log") for p in fh_paths):
+                setup_logger(name="youtu-graphrag", level=logging.INFO, log_file=os.path.join(logs_dir, "construction.log"))
+        except Exception:
+            pass
         await send_progress_update(client_id, "construction", 2, "Cleaning old cache files...")
         
         # Clear all cache files before construction
@@ -367,6 +377,23 @@ async def construct_graph(request: GraphConstructionRequest, client_id: str = "d
         if config is None:
             config = get_config("config/base_config.yaml")
         
+        # 合并多模态块到语料（构建阶段执行）
+        try:
+            from utils.multimodal_ingestion import build_chunks_for_dataset
+            logger.info(f"multimodal ingestion start: dataset='{dataset_name}'")
+            extra_chunks = build_chunks_for_dataset(dataset_name)
+            logger.info(f"multimodal ingestion chunks={len(extra_chunks) if extra_chunks else 0}")
+            if extra_chunks:
+                with open(corpus_path, 'r', encoding='utf-8') as f:
+                    base_docs = json.load(f)
+                merged_docs = (base_docs or []) + extra_chunks
+                merged_path = f"data/uploaded/{dataset_name}/merged_corpus.json"
+                with open(merged_path, 'w', encoding='utf-8') as f:
+                    json.dump(merged_docs, f, ensure_ascii=False, indent=2)
+                corpus_path = merged_path
+        except Exception as _e:
+            logger.warning(f"Multimodal ingestion skipped: {_e}")
+
         # Initialize KTBuilder
         builder = constructor.KTBuilder(
             dataset_name,
