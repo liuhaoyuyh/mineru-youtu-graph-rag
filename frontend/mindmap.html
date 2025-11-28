@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>思维导图展示</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial; background: #0f1621; color: #fff; }
+    header { padding: 12px 16px; display: flex; gap: 12px; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    select, button { padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.08); color: #fff; }
+    button { cursor: pointer; }
+    main { display: grid; grid-template-columns: 1fr 420px; height: calc(100vh - 60px); }
+    #tree { width: 100%; height: 100%; }
+    #panel { border-left: 1px solid rgba(255,255,255,0.1); padding: 12px; overflow: auto; }
+    .title { font-size: 16px; font-weight: 700; margin: 8px 0; }
+    .status { font-size: 12px; color: #9ab; margin-left: 8px; }
+    pre { white-space: pre-wrap; word-break: break-word; background: rgba(255,255,255,0.06); padding: 8px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>思维导图展示</div>
+    <select id="dataset"></select>
+    <button id="load">加载</button>
+    <span id="status" class="status"></span>
+  </header>
+  <main>
+    <div id="tree"></div>
+    <div id="panel">
+      <div class="title" id="nodeTitle">选择左侧节点查看内容</div>
+      <pre id="nodeContent"></pre>
+      <div class="title">来源</div>
+      <pre id="nodeSource"></pre>
+    </div>
+  </main>
+  <script>
+    const chart = echarts.init(document.getElementById('tree'))
+
+    function getQueryParam(name) {
+      const url = new URL(window.location.href)
+      return url.searchParams.get(name)
+    }
+
+    async function api(path, opts={}) {
+      const r = await fetch(path, opts)
+      if (!r.ok) throw new Error(await r.text())
+      return r.json()
+    }
+
+    async function loadDatasets() {
+      const data = await api('/api/datasets')
+      const sel = document.getElementById('dataset')
+      sel.innerHTML = ''
+      for (const d of data.datasets) {
+        const opt = document.createElement('option')
+        opt.value = d.name
+        opt.textContent = `${d.name} (${d.status})`
+        sel.appendChild(opt)
+      }
+      const q = getQueryParam('dataset')
+      if (q) {
+        sel.value = q
+        try { await loadMindmap() } catch(e) { document.getElementById('status').textContent = '加载失败: ' + e }
+      }
+    }
+
+    function renderTree(root) {
+      chart.setOption({
+        tooltip: {
+          trigger: 'item',
+          formatter: function(p){
+            const name = p.data?.name || ''
+            const content = p.data?.extra?.content || ''
+            const preview = content ? (content.length > 160 ? content.slice(0,160)+'…' : content) : ''
+            return name + (preview ? '\n' + preview : '')
+          }
+        },
+        series: [{
+          type: 'tree',
+          data: [root],
+          top: '10%', left: '4%', bottom: '10%', right: '28%',
+          orient: 'LR',
+          symbolSize: 8,
+          label: { position: 'left', verticalAlign: 'middle', align: 'right', color: '#fff', fontSize: 12 },
+          leaves: { label: { position: 'right', verticalAlign: 'middle', align: 'left', color: '#fff', fontSize: 12 }},
+          initialTreeDepth: 2,
+          expandAndCollapse: true,
+          edgeShape: 'polyline',
+          edgeForkPosition: '50%',
+          lineStyle: { color: 'rgba(255,255,255,0.35)' },
+          animationDuration: 300,
+          animationDurationUpdate: 150
+        }]
+      })
+      chart.off('click')
+      chart.on('click', function(p){
+        document.getElementById('nodeTitle').textContent = p.data?.name || ''
+        const content = p.data?.extra?.content || ''
+        document.getElementById('nodeContent').textContent = content || ''
+        const src = []
+        const cp = p.data?.extra?.content_path
+        if (cp) src.push('文件: ' + cp)
+        const refs = p.data?.extra?.refs || []
+        if (refs.length) src.push('范围: line ' + (refs[0].line||1) + ' - ' + (refs[0].endLine||refs[0].line||1))
+        document.getElementById('nodeSource').textContent = src.join('\n')
+      })
+    }
+
+    async function loadMindmap() {
+      const ds = document.getElementById('dataset').value
+      document.getElementById('status').textContent = '加载中…'
+      const data = await api(`/api/mindmap-tree/${encodeURIComponent(ds)}`)
+      renderTree(data.data[0])
+      document.getElementById('status').textContent = '已加载: ' + ds
+    }
+
+    window.addEventListener('resize', () => { chart && chart.resize() })
+
+    document.getElementById('load').onclick = loadMindmap
+    loadDatasets()
+  </script>
+</body>
+</html>

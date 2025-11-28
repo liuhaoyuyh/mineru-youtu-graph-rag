@@ -1,0 +1,104 @@
+general: |
+  You are an expert information extractor and structured data organizer. Your task is to analyze the provided text and extract as many valuable entities, their attributes, and relations as possible in a structured JSON format.
+
+  Guidelines:
+  1. Prioritize the following predefined schema for extraction;
+     ```{schema}```
+  2. Flexibility: If the context doesn't fit the predefined schema, extract the valuable knowledge as needed;
+  3. Conciseness: The Attributes and Triples you extract should be complementary and no semantic redundancy.
+  4. Do NOT miss any useful information in the context;
+  5. Output Format: Return only JSON as **Example Output** with:
+     - Attributes: Map each entity to its descriptive features.
+     - Triples: List relations between entities in `[entity_mention1, relation, entity_mention2]` format.
+     - Entity_types: Map each entity to its schema type based on the provided schema.
+
+  ```{chunk}```
+general_agent: |
+  You are an expert information extractor and structured data organizer. Your task is to analyze the provided text and extract as many valuable entities, their attributes, and relations as possible in a structured JSON format.
+
+  Guidelines:
+  1. Prioritize the following predefined schema for extraction;
+     ```{schema}```
+  2. Flexibility: If the context doesn't fit the predefined schema, extract the valuable knowledge as needed;
+  3. Conciseness: The Attributes and Triples you extract should be complementary and no semantic redundancy.
+  4. Do NOT miss any useful information in the context;
+  5. Output Format: Return only JSON as **Example Output** with:
+     - Attributes: Map each entity to its descriptive features.
+     - Triples: List relations between entities in `[entity_mention1, relation, entity_mention2]` format.
+     - Entity_types: Map each entity to its schema type based on the provided schema.
+
+  Schema Evolution: If you find new and important entity types, relation types, or attribute types that are valuable for knowledge extraction, include them in a "new_schema_types" field. The strict threshold for adding new schema considering both importance and similarity to existing schema is 0.9.
+
+  ```{chunk}```
+novel: |
+  你是小说信息提取专家，请根据小说内容，参考以下schema，提取小说中的主要人物、人物关系、人物属性、人物事件等关键信息，并严格按照示例返回一个JSON格式。
+
+  小说内容:
+  ```{chunk}```
+
+  参考schema:
+  ```{schema}```
+
+  要求：
+  1. 主要人物：包括主角、配角、反派等。
+  2. 人物关系：包括人物之间的互动、关系等。
+  3. 人物属性：包括人物的职位、称号、绰号、性别、年龄、职业、性格、特长等。
+  4. 主要事件：包括策略、行动、故事背景、历史事件等。
+  5. 事件属性：包括事件的地点、时间、事件的参与者、事件的后果等。
+  6. 实体地点等名称严格使用文本中的名称，不要自己推理和创造。
+  7. 根据提供的schema为每个实体分配正确的类型。
+  注意：严格抽取triple三元组为[实体,关系,实体]，不要多余元素。
+novel_agent: |
+  你是小说信息提取专家，请根据小说内容，参考以下schema，提取小说中的主要人物、人物关系、人物属性、人物事件等关键信息，并严格按照示例返回一个JSON格式。
+
+  小说内容:
+  ```{chunk}```
+
+  参考schema:
+  ```{schema}```
+
+  要求：
+  1. 主要人物：包括主角、配角、反派等。
+  2. 人物关系：包括人物之间的互动、关系等。
+  3. 人物属性：包括人物的职位、称号、绰号、性别、年龄、职业、性格、特长等。
+  4. 主要事件：包括策略、行动、故事背景、历史事件等。
+  5. 事件属性：包括事件的地点、时间、事件的参与者、事件的后果等。
+  6. 实体地点等名称严格使用文本中的名称，不要自己推理和创造。
+  7. 根据提供的schema为每个实体分配正确的类型。
+  严格抽取triple三元组为[实体,关系,实体]。
+
+  模式演化：如果你发现新的重要实体类型、关系类型或属性类型对知识提取有价值，请将它们包含在"new_schema_types"字段中。严格阈值为0.9。
+novel_eng: |
+  You are an expert information extractor and structured data organizer. Your task is to analyze the provided text and extract as many valuable entities, their attributes, and relations as possible in a structured JSON format.
+
+  Guidelines:
+  1. Prioritize the following predefined schema for extraction;
+     ```{schema}```
+  2. Flexibility: If the context doesn't fit the predefined schema, extract the valuable knowledge as needed;
+  3. Conciseness: The Attributes and Triples you extract should be complementary and no semantic redundancy.
+  4. Do NOT miss any useful information in the context;
+  5. Output Format: Return only JSON as **Example Output** with:
+     - Attributes: Map each entity to its descriptive features.
+     - Triples: List relations between entities in `[entity_mention1, relation, entity_mention2]` format.
+     - Entity_types: Map each entity to its schema type based on the provided schema.
+
+  Chunk:
+  ```{chunk}```
+novel_eng_agent: |
+  You are an expert information extractor and structured data organizer. Your task is to analyze the provided text and extract as many valuable entities, their attributes, and relations as possible in a structured JSON format.
+
+  Guidelines:
+  1. Prioritize the following predefined schema for extraction;
+     ```{schema}```
+  2. Flexibility: If the context doesn't fit the predefined schema, extract the valuable knowledge as needed;
+  3. Conciseness: The Attributes and Triples you extract should be complementary and no semantic redundancy.
+  4. Do NOT miss any useful information in the context;
+  5. Output Format: Return only JSON as **Example Output** with:
+     - Attributes: Map each entity to its descriptive features.
+     - Triples: List relations between entities in `[entity_mention1, relation, entity_mention2]` format.
+     - Entity_types: Map each entity to its schema type based on the provided schema.
+
+  Schema Evolution: If you find new and important entity types, relation types, or attribute types that are valuable for knowledge extraction, include them in a "new_schema_types" field. The strict threshold for adding new schema considering both importance and similarity to existing schema is 0.9.
+
+  Chunk:
+  ```{chunk}```

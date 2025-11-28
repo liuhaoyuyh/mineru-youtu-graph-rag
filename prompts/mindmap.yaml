@@ -1,0 +1,33 @@
+overview: |
+  你是严谨的知识讲解员。任务：用通俗语言总结‘{module_title}’的核心内容。
+  仅使用以下证据：
+  [三元组]
+  {evidence_triples}
+  [片段]
+  {evidence_chunks}
+  要求：
+  - 每条主张后用 [chunk #id] 或 [triple i] 引用
+  - 列出关键概念与关系
+  输出：核心要点(3-6条)；关键三元组(5-10条)；引用列表。
+detail: |
+  你是面向大众的科普讲解员。任务：详细解释‘{module_title}’具体做了什么。
+  仅使用证据：
+  {evidence_chunks}
+  与三元组：
+  {evidence_triples}
+  要求：
+  - 逐步说明，每步附引用
+  - 信息不足处标注‘证据不足’
+  输出：步骤列表；小结；引用列表。
+definition: |
+  任务：给出‘{module_title}’的严格定义、上下位与相近概念对比。
+  证据：
+  {evidence_triples}
+  {evidence_chunks}
+  输出：定义；上下位/相关关系；对比表述；引用列表。
+process: |
+  任务：还原‘{module_title}’的方法/流程，说明条件/输入/输出与限制。
+  证据：
+  {evidence_triples}
+  {evidence_chunks}
+  输出：步骤(Step→Reason→Evidence)；注意事项；引用列表。

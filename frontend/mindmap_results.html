@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>思维导图结果</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial; }
+    header { padding: 12px; background: #20232a; color: #fff; display: flex; gap: 12px; align-items: center; }
+    select, button { padding: 6px 8px; }
+    main { display: grid; grid-template-columns: 1fr 420px; height: calc(100vh - 60px); }
+    #tree { width: 100%; height: 100%; }
+    #panel { border-left: 1px solid #eee; padding: 12px; overflow: auto; }
+    .title { font-size: 16px; font-weight: 600; margin: 8px 0; }
+    .coverage { font-size: 12px; color: #666; }
+    .section { margin-top: 12px; }
+    .chip { display: inline-block; padding: 4px 6px; background: #f5f5f5; border-radius: 6px; margin: 4px 4px 0 0; font-size: 12px; }
+    pre { white-space: pre-wrap; word-break: break-word; background: #fafafa; padding: 8px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>思维导图结果</div>
+    <select id="dataset"></select>
+    <button id="load">加载结果</button>
+  </header>
+  <main>
+    <div id="tree"></div>
+    <div id="panel">
+      <div class="title">选择左侧节点查看解释</div>
+      <div class="coverage"></div>
+      <div class="section">
+        <div class="title">解释</div>
+        <pre id="explain"></pre>
+      </div>
+      <div class="section">
+        <div class="title">证据三元组</div>
+        <div id="triples"></div>
+      </div>
+      <div class="section">
+        <div class="title">证据片段</div>
+        <div id="chunks"></div>
+      </div>
+    </div>
+  </main>
+  <script>
+    const dsSel = document.getElementById('dataset')
+    const loadBtn = document.getElementById('load')
+    const chart = echarts.init(document.getElementById('tree'))
+    const panel = {
+      title: document.querySelector('#panel .title'),
+      coverage: document.querySelector('#panel .coverage'),
+      explain: document.getElementById('explain'),
+      triples: document.getElementById('triples'),
+      chunks: document.getElementById('chunks')
+    }
+
+    async function api(path, opts={}) {
+      const r = await fetch(path, { ...opts })
+      if (!r.ok) throw new Error(await r.text())
+      return r.json()
+    }
+
+    async function loadDatasets() {
+      const data = await api('/api/datasets')
+      dsSel.innerHTML = ''
+      for (const d of data.datasets) {
+        const opt = document.createElement('option')
+        opt.value = d.name
+        opt.textContent = `${d.name} (${d.status})`
+        dsSel.appendChild(opt)
+      }
+    }
+
+    function renderTree(root) {
+      chart.setOption({
+        tooltip: {
+          trigger: 'item',
+          formatter: function(p) {
+            const ex = p.data?.extra?.results?.explanation || ''
+            const cov = p.data?.extra?.results?.coverage
+            const head = p.data?.name || ''
+            const text = ex.length > 160 ? ex.slice(0,160) + '…' : ex
+            const covStr = (typeof cov === 'number') ? `\n引用覆盖率: ${(cov*100).toFixed(0)}%` : ''
+            return head + '\n' + text + covStr
+          }
+        },
+        series: [{
+          type: 'tree',
+          data: [root],
+          top: '5%', left: '2%', bottom: '5%', right: '2%',
+          symbolSize: 8,
+          label: { position: 'left', verticalAlign: 'middle', align: 'right', fontSize: 12 },
+          leaves: { label: { position: 'right', verticalAlign: 'middle', align: 'left' }},
+          expandAndCollapse: true,
+          animationDuration: 300,
+          animationDurationUpdate: 150
+        }]
+      })
+      chart.on('click', function(p) {
+        const name = p.data?.name || ''
+        panel.title.textContent = name
+        const res = p.data?.extra?.results || {}
+        const cov = typeof res.coverage === 'number' ? `引用覆盖率：${(res.coverage*100).toFixed(0)}%` : ''
+        panel.coverage.textContent = cov
+        panel.explain.textContent = res.explanation || ''
+        panel.triples.innerHTML = ''
+        for (const t of (res.evidence_triples || [])) {
+          const div = document.createElement('div')
+          div.className = 'chip'
+          div.textContent = Array.isArray(t) ? t.join(' | ') : String(t)
+          panel.triples.appendChild(div)
+        }
+        panel.chunks.innerHTML = ''
+        for (const c of (res.evidence_chunks || [])) {
+          const div = document.createElement('div')
+          div.className = 'chip'
+          div.textContent = String(c).slice(0, 80)
+          panel.chunks.appendChild(div)
+        }
+      })
+    }
+
+    async function loadResults() {
+      const ds = dsSel.value
+      const data = await api(`/api/mindmap/qa/tree/${encodeURIComponent(ds)}`)
+      renderTree(data.data[0])
+    }
+
+    loadBtn.addEventListener('click', loadResults)
+    loadDatasets()
+  </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+backend: pipeline
+mode: auto
+source: huggingface
+device: cpu
+force_ocr: false
