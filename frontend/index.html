@@ -1128,6 +1128,19 @@
                 <h2 id="availableDatasetsTitle">Available Datasets</h2>
                 <div id="datasetsList"></div>
             </div>
+
+            <div class="card">
+                <h2>Mindmap Actions</h2>
+                <div class="input-group">
+                    <label>Dataset:</label>
+                    <select class="select" id="mmDataset"></select>
+                </div>
+                <div class="dataset-actions" style="margin-top:8px;">
+                    <button class="btn" id="btnMindmapGen" onclick="generateMindmapAndMerge()">加载并展示思维导图（使用MinerU md）</button>
+                    <button class="btn" id="btnMindmapExplain" onclick="generateMindmapExplanation()">生成思维导图解释</button>
+                </div>
+                <pre id="mmStatus" class="status" style="margin-top:12px;"></pre>
+            </div>
         </div>
 
         <!-- Graph Tab -->
@@ -1379,6 +1392,7 @@
             // Load data for specific tabs
             if (tabName === 'upload') {
                 loadDatasets();
+                loadMindmapDatasetOptions();
             } else if (tabName === 'graph') {
                 loadDatasetOptions('graphDataset');
             } else if (tabName === 'qa') {
@@ -1559,6 +1573,7 @@
                     </div>
                 </div>
             `).join('');
+            loadMindmapDatasetOptions();
         }
 
         // Ensure a hidden schema file input exists
@@ -1794,6 +1809,42 @@
             
             select.innerHTML = '<option value="">Select a dataset...</option>' +
                 readyDatasets.map(d => `<option value="${d.name}">${d.name}</option>`).join('');
+        }
+
+        function loadMindmapDatasetOptions() {
+            const sel = document.getElementById('mmDataset');
+            if (!sel) return;
+            const readyDatasets = datasets.filter(d => d.status === 'ready');
+            sel.innerHTML = readyDatasets.map(d => `<option value="${d.name}">${d.name}</option>`).join('');
+        }
+
+        async function generateMindmapAndMerge() {
+            const ds = document.getElementById('mmDataset').value;
+            if (!ds) { showMessage('请选择数据集', 'error'); return; }
+            const box = document.getElementById('mmStatus');
+            try {
+                // 仅校验 MinerU md 是否可加载，不进行写盘生成
+                await axios.get(`${API_BASE}/api/mindmap-tree/${encodeURIComponent(ds)}`);
+                box.textContent = `已加载 MinerU md，正在跳转到思维导图展示...`;
+                const target = `/frontend/mindmap.html?dataset=${encodeURIComponent(ds)}`;
+                setTimeout(() => { window.location.href = target; }, 400);
+            } catch (error) {
+                const detail = (error.response?.data?.detail || error.message);
+                box.textContent = `无法加载 MinerU md：${detail}\n请先运行 MinerU 在 ocr/ 或 vlm/ 目录生成同名 .md`;
+            }
+        }
+
+        async function generateMindmapExplanation() {
+            const ds = document.getElementById('mmDataset').value;
+            if (!ds) { showMessage('请选择数据集', 'error'); return; }
+            const box = document.getElementById('mmStatus');
+            try {
+                const res = await axios.post(`${API_BASE}/api/mindmap/qa`, { dataset_name: ds, save: true });
+                const files = (res.data && res.data.saved_files) ? res.data.saved_files.join('\n') : '';
+                box.textContent = `解释生成完成\n已保存:\n${files}`;
+            } catch (error) {
+                box.textContent = '生成失败: ' + (error.response?.data?.detail || error.message);
+            }
         }
 
         async function loadGraphData() {

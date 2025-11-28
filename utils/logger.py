@@ -77,7 +77,7 @@ def setup_logger(name: str = "youtu-graphrag",
 # Create default logger instance
 logger = setup_logger()
 
-def progress(stage: str, message: str, *, done: bool | None = None):
+def progress(stage: str, message: str, *, done: Optional[bool] = None):
     """Unified progress logging helper.
     Args:
         stage: Short stage/category name

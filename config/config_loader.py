@@ -149,6 +149,7 @@ class ConfigManager:
         self.embeddings: Optional[EmbeddingsConfig] = None
         self.nlp: Optional[NLPConfig] = None
         self.prompts: Dict[str, Any] = {}
+        self.prompts_dir: Optional[str] = None
         self.output: Optional[OutputConfig] = None
         self.performance: Optional[PerformanceConfig] = None
         self.evaluation: Optional[EvaluationConfig] = None
@@ -216,7 +217,9 @@ class ConfigManager:
         nlp = self.config_data.get("nlp", {})
         self.nlp = NLPConfig(**nlp)
         
-        self.prompts = self.config_data.get("prompts", {})
+        self.prompts = {}
+        self.prompts_dir = self.config_data.get("prompts_dir") or os.getenv("PROMPTS_DIR") or str(Path(self.config_path).parent / "prompts")
+        self._load_prompts_from_dir()
         
         output_data = self.config_data.get("output", {})
         self.output = OutputConfig(**output_data)
@@ -248,6 +251,60 @@ class ConfigManager:
         
         if self.tree_comm.struct_weight < 0 or self.tree_comm.struct_weight > 1:
             raise ValueError("struct_weight must be between 0 and 1")
+
+    def _load_prompts_from_dir(self) -> None:
+        base = self.prompts_dir
+        data: Dict[str, Dict[str, str]] = {}
+        try:
+            if base and os.path.isdir(base):
+                # Top-level category YAML files: prompts/<category>.yaml
+                for entry in os.listdir(base):
+                    path = os.path.join(base, entry)
+                    name, ext = os.path.splitext(entry)
+                    if os.path.isfile(path) and ext.lower() in (".yaml", ".yml"):
+                        try:
+                            with open(path, 'r', encoding='utf-8') as f:
+                                loaded = yaml.safe_load(f) or {}
+                            if isinstance(loaded, dict):
+                                data[name] = {}
+                                for k, v in loaded.items():
+                                    if isinstance(v, str):
+                                        data[name][k] = v
+                        except Exception:
+                            continue
+                # Backward: per-category directories with text/markdown/YAML files
+                for cat in os.listdir(base):
+                    cat_path = os.path.join(base, cat)
+                    if not os.path.isdir(cat_path):
+                        continue
+                    data.setdefault(cat, {})
+                    for fn in os.listdir(cat_path):
+                        fp = os.path.join(cat_path, fn)
+                        if not os.path.isfile(fp):
+                            continue
+                        name, ext = os.path.splitext(fn)
+                        if ext.lower() in (".yaml", ".yml"):
+                            try:
+                                with open(fp, 'r', encoding='utf-8') as f:
+                                    loaded = yaml.safe_load(f) or {}
+                                if isinstance(loaded, dict):
+                                    for k, v in loaded.items():
+                                        if isinstance(v, str):
+                                            data[cat][k] = v
+                            except Exception:
+                                continue
+                        elif ext.lower() in (".txt", ".md"):
+                            try:
+                                with open(fp, 'r', encoding='utf-8') as f:
+                                    content = f.read()
+                                data[cat][name] = content
+                            except Exception:
+                                continue
+            else:
+                data = {}
+        except Exception:
+            data = {}
+        self.prompts = data
     
     def get_dataset_config(self, dataset_name: str) -> DatasetConfig:
         """Get configuration for a specific dataset."""
