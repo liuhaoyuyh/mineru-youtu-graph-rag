@@ -508,6 +508,22 @@ async def prepare_graph_visualization(graph_path: str) -> Dict:
         logger.error(f"Error preparing visualization: {e}")
         return {"nodes": [], "links": [], "categories": [], "stats": {}}
 
+def _is_graph_empty(path: str) -> bool:
+    try:
+        if not os.path.exists(path):
+            return True
+        with open(path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        if isinstance(data, list):
+            return len(data) == 0
+        if isinstance(data, dict):
+            nodes = data.get("nodes") or []
+            edges = data.get("edges") or data.get("links") or []
+            return (len(nodes) == 0) and (len(edges) == 0)
+        return True
+    except Exception:
+        return True
+
 def _setup_mindmap_logger():
     try:
         logs_dir = "output/logs"
@@ -1461,7 +1477,7 @@ async def ask_question(request: QuestionRequest, client_id: str = "default"):
 
         graph_path = f"output/graphs/{dataset_name}_new.json"
         schema_path = get_schema_path_for_dataset(dataset_name)
-        if not os.path.exists(graph_path):
+        if not os.path.exists(graph_path) or _is_graph_empty(graph_path):
             graph_path = "output/graphs/demo_new.json"
         if not os.path.exists(graph_path):
             raise HTTPException(status_code=404, detail="Graph not found. Please construct graph first.")
@@ -2003,7 +2019,7 @@ async def mindmap_qa(request: MindmapQARequest, client_id: str = "web_client"):
                 nodes.append(item)
         graph_path = f"output/graphs/{dataset_name}_new.json"
         schema_path = get_schema_path_for_dataset(dataset_name)
-        if not os.path.exists(graph_path):
+        if not os.path.exists(graph_path) or _is_graph_empty(graph_path):
             graph_path = "output/graphs/demo_new.json"
         if not os.path.exists(graph_path):
             raise HTTPException(status_code=404, detail="Graph not found. Please construct graph first.")
@@ -2112,8 +2128,6 @@ async def mindmap_qa(request: MindmapQARequest, client_id: str = "web_client"):
                 "module_title": name,
                 "module_type": mtype,
                 "explanation": text,
-                "evidence_triples": triples[:20],
-                "evidence_chunks": contents[:10],
                 "citations": used,
                 "coverage": cov,
                 "prompt_type": prompt_type,
@@ -2278,8 +2292,6 @@ async def mindmap_qa_md(request: MindmapQAMdRequest, client_id: str = "web_clien
                 "module_title": name,
                 "module_type": mtype,
                 "explanation": text,
-                "evidence_triples": triples[:t_k],
-                "evidence_chunks": contents[:c_k],
                 "citations": used,
                 "coverage": cov,
                 "prompt_type": prompt_type,
