@@ -131,6 +131,19 @@ class MindmapQAResponse(BaseModel):
     saved_files: List[str]
     stats: Dict
 
+class MindmapQAMdRequest(BaseModel):
+    dataset_name: str
+    src: str
+    filename: str
+    top_k_triples: Optional[int] = 12
+    top_k_chunks: Optional[int] = 6
+    prompt_strategy: Optional[str] = "auto"
+
+class MindmapQAMdResponse(BaseModel):
+    success: bool
+    saved_files: List[str]
+    stats: Dict
+
 def ensure_demo_schema_exists() -> str:
     """Ensure default demo schema exists and return its path."""
     os.makedirs("schemas", exist_ok=True)
@@ -1284,6 +1297,24 @@ def _load_results_map(dataset_name: str) -> Dict[str, Dict]:
             continue
     return m
 
+def _load_md_results_map(dataset_name: str, src: str, filename: str) -> Dict[str, Dict]:
+    m = {}
+    base = os.path.join("output", "mindmap_qa_md", dataset_name, src.strip().lower(), os.path.splitext(os.path.basename(filename))[0])
+    if not os.path.exists(base):
+        return m
+    for f in os.listdir(base):
+        if not f.endswith(".json"):
+            continue
+        p = os.path.join(base, f)
+        try:
+            with open(p, 'r', encoding='utf-8') as fp:
+                data = json.load(fp)
+            slug = os.path.splitext(f)[0]
+            m[slug] = data
+        except Exception:
+            continue
+    return m
+
 def _attach_results_to_tree(node: Dict, results: Dict[str, Dict]):
     slug = node.get("slug") or _slugify(node.get("name", ""))
     res = results.get(slug)
@@ -1386,6 +1417,35 @@ async def get_mindmap_results_tree(dataset_name: str):
         raise
     except Exception as e:
         logger.error(f"mindmap results tree failed: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/mindmap/qa/md/tree/{dataset_name}/{src}/{filename}")
+async def get_mindmap_md_results_tree(dataset_name: str, src: str, filename: str):
+    try:
+        _setup_mindmap_logger()
+        base_dir = os.path.join("data", "uploaded", dataset_name, "mineru_out")
+        md_file = os.path.join(base_dir, src.strip().lower(), filename)
+        if not os.path.exists(md_file):
+            alt = find_mineru_source_file(dataset_name)
+            if not alt or not alt.endswith('.md'):
+                raise HTTPException(status_code=404, detail="MinerU md not found")
+            md_file = alt
+        data = parse_markdown_to_mindmap(md_file)
+        data = _promote_special_sections(data)
+        tree_struct = _sort_tree_by_section_numbers(data)
+        results = _load_md_results_map(dataset_name, src, filename)
+        _attach_results_to_tree(tree_struct, results)
+        tree = _mindmap_to_echarts_tree_with_results(tree_struct)
+        def _count(n):
+            c = 1
+            for ch in n.get("children", []):
+                c += _count(ch)
+            return c
+        stats = {"nodes": _count(tree), "with_results": len(results)}
+        return {"data": [tree], "stats": stats}
+    except HTTPException:
+        raise
+    except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/ask-question", response_model=QuestionResponse)
@@ -1889,6 +1949,20 @@ def _collect_nodes_in_order(tree: Dict) -> List[Dict]:
     walk(tree, [tree.get("name", "")])
     return out
 
+def parse_mineru_md_to_modules(md_path: str) -> List[Dict]:
+    tree = parse_markdown_to_mindmap(md_path)
+    tree = _promote_special_sections(tree)
+    tree = _sort_tree_by_section_numbers(tree)
+    items = _collect_nodes_in_order(tree)
+    modules = []
+    for it in items:
+        n = it["node"]
+        lvl = int(n.get("level", 0))
+        if lvl <= 0:
+            continue
+        modules.append(n)
+    return modules
+
 def _ensure_mindmap_qa_logger():
     try:
         logs_dir = "output/logs"
@@ -1900,15 +1974,24 @@ def _ensure_mindmap_qa_logger():
         pass
 
 @app.post("/api/mindmap/qa", response_model=MindmapQAResponse)
-async def mindmap_qa(request: MindmapQARequest):
+async def mindmap_qa(request: MindmapQARequest, client_id: str = "web_client"):
     try:
         _ensure_mindmap_qa_logger()
         dataset_name = request.dataset_name
+        if not GRAPHRAG_AVAILABLE:
+            raise HTTPException(status_code=503, detail="GraphRAG components not available (missing faiss). Please install faiss-cpu and construct the graph.")
         out_mindmap = os.path.join("data", "uploaded", dataset_name, "mineru_out", "mindmap.json")
-        if not os.path.exists(out_mindmap):
-            raise HTTPException(status_code=404, detail="Mindmap not found")
-        with open(out_mindmap, 'r', encoding='utf-8') as f:
-            mindmap = json.load(f)
+        if os.path.exists(out_mindmap):
+            with open(out_mindmap, 'r', encoding='utf-8') as f:
+                mindmap = json.load(f)
+        else:
+            src = find_mineru_source_file(dataset_name)
+            if not src:
+                raise HTTPException(status_code=404, detail="Mindmap not found")
+            if src.endswith('.md'):
+                mindmap = parse_markdown_to_mindmap(src)
+            else:
+                mindmap = parse_content_list_to_mindmap(src)
         tree_struct = _build_section_hierarchy(mindmap)
         nodes_all = _collect_nodes_in_order(tree_struct)
         nodes = []
@@ -1926,7 +2009,10 @@ async def mindmap_qa(request: MindmapQARequest):
             raise HTTPException(status_code=404, detail="Graph not found. Please construct graph first.")
         global config
         if config is None:
-            config = get_config("config/base_config.yaml")
+            if 'get_config' in globals():
+                config = get_config("config/base_config.yaml")
+            else:
+                raise HTTPException(status_code=503, detail="Configuration loader unavailable. Ensure GraphRAG is installed and faiss is available.")
         kt_retriever = retriever.KTRetriever(
             dataset_name,
             graph_path,
@@ -1937,7 +2023,15 @@ async def mindmap_qa(request: MindmapQARequest):
             config=config
         )
         loop = asyncio.get_running_loop()
+        try:
+            await manager.send_message({"type": "mindmap_qa_update", "stage": "start", "dataset": dataset_name, "timestamp": datetime.now().isoformat()}, client_id)
+        except Exception:
+            pass
         await loop.run_in_executor(None, kt_retriever.build_indices)
+        try:
+            await manager.send_message({"type": "mindmap_qa_update", "stage": "indices_built", "dataset": dataset_name, "timestamp": datetime.now().isoformat()}, client_id)
+        except Exception:
+            pass
         save_dir = os.path.join("output", "mindmap_qa", dataset_name)
         os.makedirs(save_dir, exist_ok=True)
         saved = []
@@ -1952,6 +2046,11 @@ async def mindmap_qa(request: MindmapQARequest):
             q = (name or "").strip()
             if content:
                 q = (q + " " + content[:200]).strip()
+            try:
+                logger.info(f"mindmap qa retrieval start dataset='{dataset_name}' module='{name}' qlen={len(q)}")
+                await manager.send_message({"type": "mindmap_qa_update", "stage": "retrieval_start", "dataset": dataset_name, "module": name, "timestamp": datetime.now().isoformat()}, client_id)
+            except Exception:
+                pass
             def _run_retrieval():
                 return kt_retriever.process_retrieval_results(q, top_k=config.retrieval.top_k_filter)
             ret, _elapsed = await loop.run_in_executor(None, _run_retrieval)
@@ -1965,6 +2064,11 @@ async def mindmap_qa(request: MindmapQARequest):
                 for i_c, cid in enumerate(chunk_ids):
                     if i_c < len(chunk_contents):
                         contents.append(chunk_contents[i_c])
+            try:
+                logger.info(f"mindmap qa retrieval done dataset='{dataset_name}' module='{name}' triples={len(triples)} chunks={len(contents)}")
+                await manager.send_message({"type": "mindmap_qa_update", "stage": "retrieval_done", "dataset": dataset_name, "module": name, "triples_count": len(triples), "chunks_count": len(contents), "triples_preview": triples[:5], "timestamp": datetime.now().isoformat()}, client_id)
+            except Exception:
+                pass
             total_triples += len(triples)
             total_chunks += len(contents)
             ctx = "=== Triples ===\n" + "\n".join(triples[:20]) + "\n=== Chunks ===\n" + "\n".join(contents[:10])
@@ -1984,9 +2088,19 @@ async def mindmap_qa(request: MindmapQARequest):
             except Exception:
                 template = kt_retriever.generate_prompt(q, ctx)
             try:
+                logger.info(f"mindmap qa prompt built dataset='{dataset_name}' module='{name}' type='{prompt_type}' plen={len(template)}")
+                await manager.send_message({"type": "mindmap_qa_update", "stage": "prompt_built", "dataset": dataset_name, "module": name, "prompt_type": prompt_type, "prompt_preview": (template or "")[:300], "timestamp": datetime.now().isoformat()}, client_id)
+            except Exception:
+                pass
+            try:
                 text = await loop.run_in_executor(None, lambda: kt_retriever.generate_answer(template))
             except Exception as e:
                 text = f"Failed to generate explanation: {e}"
+            try:
+                logger.info(f"mindmap qa llm done dataset='{dataset_name}' module='{name}' tlen={len(text)}")
+                await manager.send_message({"type": "mindmap_qa_update", "stage": "llm_done", "dataset": dataset_name, "module": name, "answer_preview": (text or "")[:300], "timestamp": datetime.now().isoformat()}, client_id)
+            except Exception:
+                pass
             segs = re.split(r"[。.;；.!?\n]", text or "")
             segs = [s.strip() for s in segs if s.strip()]
             cites = len(re.findall(r"\[(?:chunk|triple)\s*#?\w*", text or ""))
@@ -2001,7 +2115,9 @@ async def mindmap_qa(request: MindmapQARequest):
                 "evidence_triples": triples[:20],
                 "evidence_chunks": contents[:10],
                 "citations": used,
-                "coverage": cov
+                "coverage": cov,
+                "prompt_type": prompt_type,
+                "prompt": (template or "")[:4000]
             }
             slug = n.get("slug") or _slugify(name)
             fpath = os.path.join(save_dir, slug + ".json")
@@ -2009,10 +2125,18 @@ async def mindmap_qa(request: MindmapQARequest):
                 json.dump(item_json, f, ensure_ascii=False, indent=2)
             saved.append(fpath)
             md_lines.append(f"# {name}\n\n{text}\n")
+            try:
+                await manager.send_message({"type": "mindmap_qa_update", "stage": "module_complete", "dataset": dataset_name, "module": name, "saved": fpath, "timestamp": datetime.now().isoformat()}, client_id)
+            except Exception:
+                pass
         full_md = os.path.join(save_dir, "full.md")
         with open(full_md, 'w', encoding='utf-8') as f:
             f.write("\n\n".join(md_lines))
         saved.append(full_md)
+        try:
+            await manager.send_message({"type": "mindmap_qa_update", "stage": "complete", "dataset": dataset_name, "modules": len(nodes), "timestamp": datetime.now().isoformat()}, client_id)
+        except Exception:
+            pass
         return MindmapQAResponse(success=True, saved_files=saved, stats={"modules": len(nodes), "total_triples": total_triples, "total_chunks": total_chunks})
     except HTTPException:
         raise
@@ -2022,6 +2146,168 @@ async def mindmap_qa(request: MindmapQARequest):
     
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to delete dataset: {str(e)}")
+
+@app.post("/api/mindmap/qa/md", response_model=MindmapQAMdResponse)
+async def mindmap_qa_md(request: MindmapQAMdRequest, client_id: str = "web_client"):
+    try:
+        dataset_name = request.dataset_name
+        if not GRAPHRAG_AVAILABLE:
+            raise HTTPException(status_code=503, detail="GraphRAG components not available (missing faiss). Please install faiss-cpu and construct the graph.")
+        base_dir = os.path.join("data", "uploaded", dataset_name, "mineru_out")
+        subdir = request.src.strip().lower()
+        md_file = os.path.join(base_dir, subdir, request.filename)
+        if not os.path.exists(md_file):
+            alt = find_mineru_source_file(dataset_name)
+            if not alt or not alt.endswith(".md"):
+                raise HTTPException(status_code=404, detail="MinerU md not found")
+            md_file = alt
+        modules = parse_mineru_md_to_modules(md_file)
+        graph_path = f"output/graphs/{dataset_name}_new.json"
+        schema_path = get_schema_path_for_dataset(dataset_name)
+        if not os.path.exists(graph_path):
+            graph_path = "output/graphs/demo_new.json"
+        if not os.path.exists(graph_path):
+            raise HTTPException(status_code=404, detail="Graph not found. Please construct graph first.")
+        global config
+        if config is None:
+            if 'get_config' in globals():
+                config = get_config("config/base_config.yaml")
+            else:
+                raise HTTPException(status_code=503, detail="Configuration loader unavailable. Ensure GraphRAG is installed and faiss is available.")
+        kt_retriever = retriever.KTRetriever(
+            dataset_name,
+            graph_path,
+            recall_paths=config.retrieval.recall_paths,
+            schema_path=schema_path,
+            top_k=config.retrieval.top_k_filter,
+            mode="agent",
+            config=config
+        )
+        loop = asyncio.get_running_loop()
+        try:
+            await manager.send_message({"type": "mindmap_qa_update", "stage": "start", "dataset": dataset_name, "timestamp": datetime.now().isoformat()}, client_id)
+        except Exception:
+            pass
+        await loop.run_in_executor(None, kt_retriever.build_indices)
+        try:
+            await manager.send_message({"type": "mindmap_qa_update", "stage": "indices_built", "dataset": dataset_name, "timestamp": datetime.now().isoformat()}, client_id)
+        except Exception:
+            pass
+        out_dir = os.path.join("output", "mindmap_qa_md", dataset_name, subdir, os.path.splitext(os.path.basename(md_file))[0])
+        os.makedirs(out_dir, exist_ok=True)
+        saved = []
+        total_triples = 0
+        total_chunks = 0
+        md_lines = []
+        for n in modules:
+            name = n.get("name", "")
+            content = n.get("content", "")
+            mtype = _mindmap_classify(name)
+            q = (name or "").strip()
+            if content:
+                q = (q + " " + content[:200]).strip()
+            try:
+                logger.info(f"mindmap qa md retrieval start dataset='{dataset_name}' module='{name}' qlen={len(q)}")
+                await manager.send_message({"type": "mindmap_qa_update", "stage": "retrieval_start", "dataset": dataset_name, "module": name, "timestamp": datetime.now().isoformat()}, client_id)
+            except Exception:
+                pass
+            def _run_retrieval():
+                return kt_retriever.process_retrieval_results(q, top_k=config.retrieval.top_k_filter)
+            ret, _elapsed = await loop.run_in_executor(None, _run_retrieval)
+            triples = ret.get('triples', []) or []
+            chunk_ids = ret.get('chunk_ids', []) or []
+            chunk_contents = ret.get('chunk_contents', []) or []
+            if isinstance(chunk_contents, dict):
+                contents = list(chunk_contents.values())
+            else:
+                contents = []
+                for i_c, cid in enumerate(chunk_ids):
+                    if i_c < len(chunk_contents):
+                        contents.append(chunk_contents[i_c])
+            t_k = int(request.top_k_triples or 12)
+            c_k = int(request.top_k_chunks or 6)
+            total_triples += len(triples)
+            total_chunks += len(contents)
+            try:
+                logger.info(f"mindmap qa md retrieval done dataset='{dataset_name}' module='{name}' triples={len(triples)} chunks={len(contents)}")
+                await manager.send_message({"type": "mindmap_qa_update", "stage": "retrieval_done", "dataset": dataset_name, "module": name, "triples_count": len(triples), "chunks_count": len(contents), "triples_preview": triples[:5], "timestamp": datetime.now().isoformat()}, client_id)
+            except Exception:
+                pass
+            ctx = "=== Triples ===\n" + "\n".join(triples[:t_k]) + "\n=== Chunks ===\n" + "\n".join(contents[:c_k])
+            ptype = request.prompt_strategy or "auto"
+            if ptype == "auto":
+                prompt_type = {
+                    "overview": "overview",
+                    "detail": "detail",
+                    "definition": "definition",
+                    "process": "process"
+                }.get(mtype, "detail")
+            else:
+                prompt_type = ptype
+            try:
+                template = config.get_prompt_formatted("mindmap", prompt_type,
+                                                      module_title=name,
+                                                      module_content=content or "",
+                                                      dataset_name=dataset_name,
+                                                      evidence_triples="\n".join(triples[:t_k]),
+                                                      evidence_chunks="\n".join(contents[:c_k]))
+            except Exception:
+                template = kt_retriever.generate_prompt(q, ctx)
+            try:
+                logger.info(f"mindmap qa md prompt built dataset='{dataset_name}' module='{name}' type='{prompt_type}' plen={len(template)}")
+                await manager.send_message({"type": "mindmap_qa_update", "stage": "prompt_built", "dataset": dataset_name, "module": name, "prompt_type": prompt_type, "prompt_preview": (template or "")[:300], "timestamp": datetime.now().isoformat()}, client_id)
+            except Exception:
+                pass
+            try:
+                text = await loop.run_in_executor(None, lambda: kt_retriever.generate_answer(template))
+            except Exception as e:
+                text = f"Failed to generate explanation: {e}"
+            try:
+                logger.info(f"mindmap qa md llm done dataset='{dataset_name}' module='{name}' tlen={len(text)}")
+                await manager.send_message({"type": "mindmap_qa_update", "stage": "llm_done", "dataset": dataset_name, "module": name, "answer_preview": (text or "")[:300], "timestamp": datetime.now().isoformat()}, client_id)
+            except Exception:
+                pass
+            segs = re.split(r"[。.;；.!?\n]", text or "")
+            segs = [s.strip() for s in segs if s.strip()]
+            cites = len(re.findall(r"\[(?:chunk|triple)\s*#?\w*", text or ""))
+            cov = (cites / max(1, len(segs)))
+            used = []
+            for cid in chunk_ids[:c_k]:
+                used.append(str(cid))
+            item_json = {
+                "module_title": name,
+                "module_type": mtype,
+                "explanation": text,
+                "evidence_triples": triples[:t_k],
+                "evidence_chunks": contents[:c_k],
+                "citations": used,
+                "coverage": cov,
+                "prompt_type": prompt_type,
+                "prompt": (template or "")[:4000]
+            }
+            slug = n.get("slug") or _slugify(name)
+            fpath = os.path.join(out_dir, slug + ".json")
+            with open(fpath, 'w', encoding='utf-8') as f:
+                json.dump(item_json, f, ensure_ascii=False, indent=2)
+            saved.append(fpath)
+            md_lines.append(f"# {name}\n\n{text}\n")
+            try:
+                await manager.send_message({"type": "mindmap_qa_update", "stage": "module_complete", "dataset": dataset_name, "module": name, "saved": fpath, "timestamp": datetime.now().isoformat()}, client_id)
+            except Exception:
+                pass
+        full_md = os.path.join(out_dir, "full.md")
+        with open(full_md, 'w', encoding='utf-8') as f:
+            f.write("\n\n".join(md_lines))
+        saved.append(full_md)
+        try:
+            await manager.send_message({"type": "mindmap_qa_update", "stage": "complete", "dataset": dataset_name, "modules": len(modules), "timestamp": datetime.now().isoformat()}, client_id)
+        except Exception:
+            pass
+        return MindmapQAMdResponse(success=True, saved_files=saved, stats={"modules": len(modules), "total_triples": total_triples, "total_chunks": total_chunks})
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/datasets/{dataset_name}/reconstruct")
 async def reconstruct_dataset(dataset_name: str, client_id: str = "default"):

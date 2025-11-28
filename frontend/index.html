@@ -1140,6 +1140,7 @@
                     <button class="btn" id="btnMindmapExplain" onclick="generateMindmapExplanation()">生成思维导图解释</button>
                 </div>
                 <pre id="mmStatus" class="status" style="margin-top:12px;"></pre>
+                <div id="mmMessages" class="message info" style="display:none; margin-top:8px;"></div>
             </div>
         </div>
 
@@ -1838,10 +1839,38 @@
             const ds = document.getElementById('mmDataset').value;
             if (!ds) { showMessage('请选择数据集', 'error'); return; }
             const box = document.getElementById('mmStatus');
+            const msgBox = document.getElementById('mmMessages');
             try {
-                const res = await axios.post(`${API_BASE}/api/mindmap/qa`, { dataset_name: ds, save: true });
+                box.textContent = '正在生成思维导图解释…';
+                if (msgBox) { msgBox.style.display = 'block'; msgBox.textContent = ''; }
+                const wsProto = window.location.protocol === 'https:' ? 'wss' : 'ws';
+                const ws = new WebSocket(`${wsProto}://${window.location.host}/ws/web_client`);
+                ws.onmessage = function(event){
+                    try {
+                        const data = JSON.parse(event.data);
+                        if (data.type === 'mindmap_qa_update') {
+                            const stage = data.stage || '';
+                            const module = data.module || '';
+                            const lines = [];
+                            if (stage === 'start') lines.push('开始处理…');
+                            if (stage === 'indices_built') lines.push('检索索引已就绪');
+                            if (stage === 'retrieval_start') lines.push(`检索开始：${module}`);
+                            if (stage === 'retrieval_done') lines.push(`检索完成：${module}｜三元组 ${data.triples_count || 0}｜片段 ${data.chunks_count || 0}`);
+                            if (stage === 'prompt_built') lines.push(`提示词构建：${module}｜类型 ${data.prompt_type}`);
+                            if (stage === 'llm_done') lines.push(`LLM 生成：${module}`);
+                            if (stage === 'module_complete') lines.push(`模块完成：${module}`);
+                            if (stage === 'complete') lines.push('全部完成');
+                            if (lines.length) {
+                                const t = (msgBox.textContent || '') + (msgBox.textContent ? '\n' : '') + lines.join('\n');
+                                msgBox.textContent = t;
+                            }
+                        }
+                    } catch(e) {}
+                };
+                const res = await axios.post(`${API_BASE}/api/mindmap/qa`, { dataset_name: ds, save: true }, { params: { client_id: 'web_client' } });
                 const files = (res.data && res.data.saved_files) ? res.data.saved_files.join('\n') : '';
                 box.textContent = `解释生成完成\n已保存:\n${files}`;
+                try { ws.close(); } catch(_) {}
             } catch (error) {
                 box.textContent = '生成失败: ' + (error.response?.data?.detail || error.message);
             }
