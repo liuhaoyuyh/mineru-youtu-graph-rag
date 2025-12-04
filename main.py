@@ -150,14 +150,36 @@ def graph_construction(datasets):
                 logger.info("Clearing caches before construction...")
                 clear_cache_files(dataset)
                 
+                corpus_path = dataset_config.corpus_path
+                try:
+                    from utils.multimodal_ingestion import build_chunks_for_dataset
+                    logger.info(f"multimodal ingestion start: dataset='{dataset}'")
+                    extra_chunks = build_chunks_for_dataset(dataset)
+                    logger.info(f"multimodal ingestion chunks={len(extra_chunks) if extra_chunks else 0}")
+                    if extra_chunks:
+                        with open(corpus_path, "r", encoding="utf-8") as f:
+                            base_docs = json.load(f)
+                        merged_docs = (base_docs or []) + extra_chunks
+                        out_dir = f"data/uploaded/{dataset}"
+                        os.makedirs(out_dir, exist_ok=True)
+                        merged_path = f"{out_dir}/merged_corpus.json"
+                        with open(merged_path, "w", encoding="utf-8") as f:
+                            json.dump(merged_docs, f, ensure_ascii=False, indent=2)
+                        logger.info(f"merged_corpus written: path='{merged_path}', base_docs={len(base_docs) if base_docs else 0}, extra_chunks={len(extra_chunks)}")
+                        corpus_path = merged_path
+                    else:
+                        logger.info("no multimodal chunks, using original corpus")
+                except Exception as _e:
+                    logger.warning(f"Multimodal ingestion skipped: {_e}")
+
                 builder = constructor.KTBuilder(
-                    dataset, 
-                    dataset_config.schema_path, 
+                    dataset,
+                    dataset_config.schema_path,
                     mode=config.construction.mode,
                     config=config
                 )
 
-                builder.build_knowledge_graph(dataset_config.corpus_path)
+                builder.build_knowledge_graph(corpus_path)
                 logger.info(f"Successfully built knowledge graph for {dataset}")
             
             except Exception as e:

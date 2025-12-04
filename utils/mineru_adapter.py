@@ -73,7 +73,8 @@ def parse_with_mineru(input_path: str, output_dir: str) -> List[Dict]:
     os.makedirs(output_dir, exist_ok=True)
 
     # Resolve configuration (file > env > default)
-    cfg = get_config("config/base_config.yaml")
+    cfg = get_config("config/mineru.yaml")
+    # cfg = get_config("../config/mineru.yaml")
     mineru_cfg = (cfg.config_data or {}).get("mineru", {})
     device = mineru_cfg.get("device") or os.getenv("MINERU_DEVICE", "cpu")
     runner = _build_mineru_runner()
@@ -379,3 +380,8 @@ def parse_with_mineru(input_path: str, output_dir: str) -> List[Dict]:
     logger.info(f"mineru aggregated texts: {len(texts)} entries, content_len={len(content)}")
     title = os.path.basename(input_path)
     return [{"title": title, "text": content}] if content else []
+
+if __name__ == '__main__':
+    input_path = "../test/input/2021年点云姿态估计_副本.pdf"
+    output_dir = "../test/output"
+    parse_with_mineru(input_path,output_dir)

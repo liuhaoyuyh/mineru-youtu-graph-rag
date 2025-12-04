@@ -1,33 +1,67 @@
 general: |
-  You are an expert information extractor and structured data organizer. Your task is to analyze the provided text and extract as many valuable entities, their attributes, and relations as possible in a structured JSON format.
+  You are an expert information extractor and structured data organizer. Analyze the provided text and return a structured JSON.
 
-  Guidelines:
-  1. Prioritize the following predefined schema for extraction;
+  Requirements:
+  1. Use the predefined schema first:
      ```{schema}```
-  2. Flexibility: If the context doesn't fit the predefined schema, extract the valuable knowledge as needed;
-  3. Conciseness: The Attributes and Triples you extract should be complementary and no semantic redundancy.
-  4. Do NOT miss any useful information in the context;
-  5. Output Format: Return only JSON as **Example Output** with:
-     - Attributes: Map each entity to its descriptive features.
-     - Triples: List relations between entities in `[entity_mention1, relation, entity_mention2]` format.
-     - Entity_types: Map each entity to its schema type based on the provided schema.
+  2. If content doesn't fit, still extract valuable knowledge.
+  3. Keep attributes and triples complementary without redundancy.
+  4. Do NOT miss useful information.
+  5. Return ONLY pure JSON with EXACT lowercase keys: `attributes`, `triples`, `entity_types`, `new_schema_types`.
+
+  Example Output:
+  {{
+    "attributes": {{
+      "HybrIK-X": ["framework", "whole-body mesh recovery"]
+    }},
+    "triples": [
+      ["HybrIK-X", "integrates", "3D keypoint estimation"],
+      ["HybrIK-X", "uses", "inverse kinematics"]
+    ],
+    "entity_types": {{
+      "HybrIK-X": "concept",
+      "inverse kinematics": "concept"
+    }},
+    "new_schema_types": {{
+      "nodes": [],
+      "relations": [],
+      "attributes": []
+    }}
+  }}
 
   ```{chunk}```
 general_agent: |
-  You are an expert information extractor and structured data organizer. Your task is to analyze the provided text and extract as many valuable entities, their attributes, and relations as possible in a structured JSON format.
+  You are an expert information extractor and structured data organizer. Analyze the provided text and return a structured JSON.
 
-  Guidelines:
-  1. Prioritize the following predefined schema for extraction;
+  Requirements:
+  1. Use the predefined schema first:
      ```{schema}```
-  2. Flexibility: If the context doesn't fit the predefined schema, extract the valuable knowledge as needed;
-  3. Conciseness: The Attributes and Triples you extract should be complementary and no semantic redundancy.
-  4. Do NOT miss any useful information in the context;
-  5. Output Format: Return only JSON as **Example Output** with:
-     - Attributes: Map each entity to its descriptive features.
-     - Triples: List relations between entities in `[entity_mention1, relation, entity_mention2]` format.
-     - Entity_types: Map each entity to its schema type based on the provided schema.
+  2. If content doesn't fit, still extract valuable knowledge.
+  3. Keep attributes and triples complementary without redundancy.
+  4. Do NOT miss useful information.
+  5. Return ONLY pure JSON with EXACT lowercase keys: `attributes`, `triples`, `entity_types`, `new_schema_types`.
 
-  Schema Evolution: If you find new and important entity types, relation types, or attribute types that are valuable for knowledge extraction, include them in a "new_schema_types" field. The strict threshold for adding new schema considering both importance and similarity to existing schema is 0.9.
+  Example Output:
+  {{
+    "attributes": {{
+      "HybrIK-X": ["framework", "whole-body mesh recovery"]
+    }},
+    "triples": [
+      ["HybrIK-X", "integrates", "3D keypoint estimation"],
+      ["HybrIK-X", "uses", "inverse kinematics"]
+    ],
+    "entity_types": {{
+      "HybrIK-X": "concept",
+      "inverse kinematics": "concept"
+    }},
+    "new_schema_types": {{
+      "nodes": [],
+      "relations": [],
+      "attributes": []
+    }}
+  }}
+
+  Schema Evolution: If you find new and important entity types, relation types, or attribute types, include them under `new_schema_types` with lists: `nodes`, `relations`, `attributes`. Only add when importance and similarity threshold ≥ 0.9.
 
   ```{chunk}```
 novel: |

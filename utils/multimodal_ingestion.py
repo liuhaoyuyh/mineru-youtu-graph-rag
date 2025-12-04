@@ -1,3 +1,4 @@
+from utils import logger
 import os
 import json
 import base64
@@ -204,12 +205,40 @@ def _analyze_equation(item: Dict[str, Any], context: str, llm: LLMCompletionCall
 
 
 def _find_content_list_file(mineru_out_dir: Path):
-    patterns = ["**/*content_list.json", "**/*content*.json"]
+    patterns = [
+        "**/*content_list.json",
+        "**/*content*.json",
+        "**/*_con",
+        "**/*_con.json",
+    ]
     for pat in patterns:
         for p in mineru_out_dir.glob(pat):
             if p.is_file():
                 return p
+    # Fallback: scan files to find a likely content list
+    for p in mineru_out_dir.rglob("*"):
+        if not p.is_file():
+            continue
+        name = p.name.lower()
+        if ("content" in name or name.endswith("_con")):
+            return p
     return None
+
+
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+def _process_single_item(item, ctx, llm, vlm_enabled, dataset_name):
+    t = item["type"]
+
+    if t == "image":
+        desc = _analyze_image(item, ctx, llm, vlm_enabled)
+    elif t == "table":
+        desc = _analyze_table(item, ctx, llm)
+    else:
+        desc = _analyze_equation(item, ctx, llm)
+
+    chunk_text = _apply_chunk_template(t, item, desc)
+    return {"title": dataset_name, "text": chunk_text}
 
 
 def build_chunks_for_dataset(dataset_name: str) -> List[Dict[str, str]]:
@@ -219,25 +248,56 @@ def build_chunks_for_dataset(dataset_name: str) -> List[Dict[str, str]]:
     mineru_out_dir = Path(mineru_base) / dataset_name / "mineru_out"
     if not mineru_out_dir.exists():
         return []
+
     content_file = _find_content_list_file(mineru_out_dir)
     if not content_file or not content_file.exists():
         return []
-    content_list = json.loads(content_file.read_text(encoding="utf-8"))
+
+    # load content list
+    try:
+        raw = content_file.read_text(encoding="utf-8")
+        content_list = json.loads(raw)
+    except Exception:
+        import json_repair
+        content_list = json_repair.loads(raw)
+
     _fix_paths(content_list, content_file.parent)
+
     extractor = ContextExtractor(window=mm_cfg.get("context_window", 1))
     llm = LLMCompletionCall()
+    vlm_enabled = bool(mm_cfg.get("vlm_enabled", False))
     chunks: List[Dict[str, str]] = []
-    for item in content_list:
-        t = str(item.get("type", ""))
-        if t not in ("image", "table", "equation"):
-            continue
-        ctx = extractor.extract(content_list, item)
-        if t == "image":
-            desc = _analyze_image(item, ctx, llm, bool(mm_cfg.get("vlm_enabled", False)))
-        elif t == "table":
-            desc = _analyze_table(item, ctx, llm)
-        else:
-            desc = _analyze_equation(item, ctx, llm)
-        chunk_text = _apply_chunk_template(t, item, desc)
-        chunks.append({"title": dataset_name, "text": chunk_text})
+
+    # only target types
+    target_items = [
+        (i, item) for i, item in enumerate(content_list)
+        if str(item.get("type", "")) in ("image", "table", "equation")
+    ]
+
+    # precompute context
+    try:
+        all_ctx = extractor.precompute_context(content_list)
+    except AttributeError:
+        all_ctx = {id(item): extractor.extract(content_list, item)
+                   for _, item in target_items}
+
+    # -----------------------------
+    # 🚀 SUPER SPEED: 线程池并行 LLM 推理
+    # -----------------------------
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        futures = []
+
+        for i, item in target_items:
+            print(i)
+            ctx = all_ctx.get(id(item))
+            futures.append(
+                executor.submit(
+                    _process_single_item,
+                    item, ctx, llm, vlm_enabled, dataset_name
+                )
+            )
+
+        for f in as_completed(futures):
+            chunks.append(f.result())
+
     return chunks
